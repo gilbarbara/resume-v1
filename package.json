@@ -1,0 +1,35 @@
+{
+  "name": "gilbarbara.github.io",
+  "version": "0.2.0",
+  "devDependencies": {
+    "apache-server-configs": "^2.14.0",
+    "browser-sync": "^2.7.6",
+    "connect": "^3.3.5",
+    "del": "^1.2.0",
+    "gulp": "^3.8.11",
+    "gulp-autoprefixer": "^2.3.0",
+    "gulp-cache": "^0.2.9",
+    "gulp-changed": "^1.2.1",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-eslint": "^0.12.0",
+    "gulp-filter": "^2.0.2",
+    "gulp-flatten": "0.0.4",
+    "gulp-if": "^1.2.5",
+    "gulp-imagemin": "^2.2.1",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.0.1",
+    "gulp-size": "^1.2.1",
+    "gulp-uglify": "^1.2.0",
+    "gulp-useref": "^1.2.0",
+    "gulp-util": "^3.0.5",
+    "main-bower-files": "^2.8.0",
+    "merge-stream": "^0.1.7",
+    "run-sequence": "^1.1.0",
+    "wiredep": "^2.2.2"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}
