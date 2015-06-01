@@ -161,7 +161,11 @@ gulp.task('serve', ['assets'], function () {
 			}
 		}
 	});
-	gulp.watch('app/styles/**/*.scss', ['styles']);
+    gulp.watch('app/styles/**/*.scss', function (e) {
+        if (e.type === 'changed') {
+            gulp.start('styles');
+        }
+    });
 	//gulp.watch('bower.json', ['bundle', browserSync.reload]);
 });
 

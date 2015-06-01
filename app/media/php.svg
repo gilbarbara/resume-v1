@@ -1,1 +1,8 @@
-<svg width="292" height="152" viewBox="0 0 292 152" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet"><g fill="none"><ellipse fill="#6383B9" cx="146" cy="76" rx="146" ry="76"/><path d="M41 121l16-81h37c16 1 24 9 24 23 0 24-19 38-36 37h-18l-4 21h-19zm27-36l5-30h13c7 0 12 3 12 9-1 17-9 20-18 21h-12z" id="p" fill="#fff"/><path d="M112 100l16-81h19l-4 21h18c16 1 22 9 20 19l-7 41h-20l7-37c1-5 1-8-6-8h-15l-9 45h-19z" fill="#fff"/><path d="M175 121l16-81h37c16 1 24 9 24 23 0 24-19 38-36 37h-18l-4 21h-19zm27-36l5-30h13c7 0 12 3 12 9-1 17-9 20-18 21h-12z" fill="#fff"/></g></svg>
+<svg width="292px" height="152px" viewBox="0 0 292 152" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMin meet">
+<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+<ellipse id="Oval" fill="#6383B9" cx="146" cy="76" rx="146" ry="76"></ellipse>
+<path d="M38,121 L54,40 L91,40 C107,41 115,49 115,63 C115,87 96,101 79,100 L61,100 L57,121 L38,121 M65,85 L70,55 L83,55 C90,55 95,58 95,64 C94,81 86,84 77,85 L65,85" fill="#FFFFFF"></path>
+<path d="M114,100 L130,19 L149,19 L145,40 L163,40 C179,41 185,49 183,59 L176,100 L156,100 L163,63 C164,58 164,55 157,55 L142,55 L133,100 L114,100 L114,100 Z" id="Path" fill="#FFFFFF"></path>
+<path d="M177,121 L193,40 L230,40 C246,41 254,49 254,63 C254,87 235,101 218,100 L200,100 L196,121 L177,121 M204,85 L209,55 L222,55 C229,55 234,58 234,64 C233,81 225,84 216,85 L204,85" fill="#FFFFFF"></path>
+</g>
+</svg>
