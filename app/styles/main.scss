@@ -1,159 +1,59 @@
+@import 'variables';
+@import 'utils';
+
 html {
   font-size: 62.5%;
   height: 100%;
 }
 
 body {
+  background-color: #E4A93C;
   margin: 0;
   min-height: 100%;
   padding: 0;
+
+  &:before {
+    background-image: url('../media/developer.png');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 180%;
+    bottom: 0;
+    content: '';
+    left: 0;
+    opacity: 0.6;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    @include sm {
+      background-size: 150%;
+      opacity: 0.8;
+    }
+
+    @include md {
+      background-size: 100%;
+    }
+  }
 }
 
-.tier {
-  &-1 {
-    height: 100px;
-  }
-
-  &-2 {
-    height: 70px;
-  }
-
-  &-3 {
-    height: 50px;
-  }
-}
-
-.board {
-  background-color: #ccc;
-  height: 100%;
+.main-header {
   position: relative;
-}
+  text-align: center;
+  z-index: 10;
 
-.logos {
-  margin: 10px;
-  //position: absolute;
-
-  &[src*=js] {
-
-  }
-
-  &[src*=jquery] {
-
-  }
-
-  &[src*=backbone] {
-
-  }
-
-  &[src*=bower] {
-
-  }
-
-  &[src*=d3] {
-
-  }
-
-  &[src*=github] {
-
-  }
-
-  &[src*=nodejs] {
-
-  }
-
-  &[src*=react] {
-
-  }
-
-  &[src*=sass] {
-
-  }
-
-  &[src*=php] {
-
-  }
-
-  &[src*=html-5] {
-
-  }
-
-  &[src*=css-3] {
-
-  }
-
-  &[src*=gulp] {
-
-  }
-
-  &[src*=bootstrap] {
-
-  }
-
-  &[src*=codepen] {
-
-  }
-
-  &[src*=browserify] {
-
-  }
-
-  &[src*=cordova] {
-
-  }
-
-  &[src*=grunt] {
-
-  }
-
-  &[src*=handlebars] {
-
-  }
-
-  &[src*=ionic] {
-
-  }
-
-  &[src*=mocha] {
-
-  }
-
-  &[src*=mongodb] {
-
-  }
-
-  &[src*=mysql] {
-
-  }
-
-  &[src*=wordpress] {
-
-  }
-
-  &[src*=meteor] {
-
-  }
-
-  &[src*=npm] {
-
-  }
-
-  &[src*=polymer] {
-
-  }
-
-  &[src*=python] {
-
-  }
-
-  &[src*=ruby] {
-
-  }
-
-  &[src*=rest] {
-
-  }
-
-  &[src*=yeoman] {
-
+  h1 {
+    color: #e43c3c;
+    font-size: 4.5rem;
+    line-height: 1em;
   }
 }
+
+.container {
+  margin: 0 auto;
+  max-width: 1280px;
+}
+
+main {
+  text-align: center;
+}
+
