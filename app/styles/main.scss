@@ -1,5 +1,10 @@
-@import 'variables';
-@import 'utils';
+@import 'base/variables';
+@import 'base/utils';
+
+
+@import 'base/bootstrap';
+@import 'logos';
+@import url('//fonts.googleapis.com/css?family=Roboto+Condensed:400,700');
 
 html {
   font-size: 62.5%;
@@ -7,53 +12,121 @@ html {
 }
 
 body {
-  background-color: #E4A93C;
+  background-attachment: fixed;
+  background-image: linear-gradient(#93a0a9, #fff6e4);
+  background-repeat: no-repeat;
+  font-family: 'Roboto Condensed', sans-serif;
   margin: 0;
   min-height: 100%;
-  padding: 0;
-
-  &:before {
-    background-image: url('../media/developer.png');
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-size: 180%;
-    bottom: 0;
-    content: '';
-    left: 0;
-    opacity: 0.6;
-    position: absolute;
-    right: 0;
-    top: 0;
-
-    @include sm {
-      background-size: 150%;
-      opacity: 0.8;
-    }
-
-    @include md {
-      background-size: 100%;
-    }
-  }
+  padding: 0 0 $grid-gutter-width;
 }
 
 .main-header {
+  margin: $grid-gutter-width 0 ($grid-gutter-width / 2);
   position: relative;
   text-align: center;
   z-index: 10;
 
+  @include xs {
+    margin-top: 35px;
+  }
+
+  @include sm {
+    margin-top: $grid-gutter-width* 1.5;
+  }
+
+  @include md {
+    margin-bottom: $grid-gutter-width * 2;
+    margin-top: $grid-gutter-width * 2;
+  }
+
+  @include lg {
+    margin-bottom: $grid-gutter-width * 4;
+    margin-top: $grid-gutter-width * 4;
+  }
+
   h1 {
-    color: #e43c3c;
-    font-size: 4.5rem;
+    background-color: $brand-primary;
+    color: #000;
+    display: inline-block;
+    font-family: Georgia, serif;
+    font-size: 3rem;
+    font-style: italic;
+    font-weight: bold;
     line-height: 1em;
+    margin: 0 0 1rem;
+    padding: 10px;
+
+    @include lg {
+      font-size: 5rem;
+      padding: 16px;
+    }
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    margin: 0;
+
+    @include lg {
+      font-size: 3rem;
+    }
+  }
+
+  > .menu {
+    margin: 10px auto 0;
+    max-width: 208px;
+
+    a {
+      color: #000;
+      display: inline-block;
+      float: left;
+      position: relative;
+      text-decoration: none;
+
+      &:before {
+        background: $brand-primary;
+        bottom: 0;
+        content: '';
+        display: block;
+        height: 2px;
+        position: absolute;
+        width: 100%;
+      }
+    }
+
+    a:nth-of-type(2) {
+      float: right;
+    }
   }
 }
 
 .container {
-  margin: 0 auto;
-  max-width: 1280px;
+  max-width: 960px;
+  width: auto;
+
+  @include sm {
+    margin: 0 $grid-gutter-width;
+  }
+
+  @include md {
+    margin: 0 ($grid-gutter-width * 4);
+  }
 }
 
 main {
-  text-align: center;
+
 }
 
+.skills {
+  margin-top: $grid-gutter-width;
+
+  > div {
+    @include jagged(#999);
+    margin-bottom: $grid-gutter-width;
+    padding-bottom: ($grid-gutter-width / 2);
+  }
+
+  h4 {
+    margin-top: 0;
+  }
+}

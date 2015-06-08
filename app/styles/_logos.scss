@@ -1,0 +1,724 @@
+$logo-opacity: 0.6;
+
+.logos {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  img {
+    opacity: 0;
+    position: absolute;
+    transition: all 0.3s cubic-bezier(0, 1.1, 1, 1.8);
+
+    &.ai {
+      @include md-only {
+        display: none;
+      }
+
+      @include lg {
+        left: 320px;
+        opacity: $logo-opacity;
+        top: 10px;
+        width: 40px;
+      }
+    }
+
+    &.ps {
+      @include md-only {
+        display: none;
+      }
+
+      @include lg {
+        left: 290px;
+        opacity: $logo-opacity;
+        top: 10px;
+        width: 40px;
+      }
+    }
+
+    &.backbone {
+      @include xxs-only {
+        display: none;
+      }
+
+      @include xs {
+        left: 17vw;
+        opacity: $logo-opacity;
+        top: 5vh;
+        width: 7vw;
+      }
+
+      @include sm {
+        left: 14vw;
+        top: 7vh;
+        width: 5vw;
+      }
+
+      @include md {
+        left: 70px;
+        top: 84px;
+        width: 26px;
+        z-index: 2;
+      }
+    }
+
+    &.bash {
+      @include xs-only {
+        display: none;
+      }
+
+      @include sm {
+        opacity: $logo-opacity;
+        right: 10vw;
+        top: 15vh;
+        width: 5vw;
+        z-index: 2;
+      }
+
+      @include md {
+        right: 110px;
+        top: 190px;
+        width: 35px;
+      }
+    }
+
+    &.bootstrap {
+      @include xs-only {
+        display: none;
+      }
+
+      @include sm {
+        opacity: $logo-opacity;
+        right: 2vw;
+        top: 8vh;
+        width: 5vw;
+        z-index: 2;
+      }
+
+      @include md {
+        right: 10px;
+        top: 65px;
+        width: 30px;
+      }
+    }
+
+    &.bower {
+      @include xs-only {
+        display: none;
+      }
+
+      @include sm {
+        left: 20vw;
+        opacity: $logo-opacity;
+        top: 7vh;
+        transform: rotate(-5deg);
+        width: 8vw;
+      }
+
+      @include md {
+        left: 110px;
+        top: 180px;
+        width: 45px;
+      }
+    }
+
+    &.browserify {
+      @include xs-only {
+        display: none;
+      }
+
+      @include sm {
+        opacity: $logo-opacity;
+        right: 16vw;
+        top: 10.3vh;
+        width: 8vw;
+      }
+
+      @include md {
+        left: 115px;
+        right: auto;
+        top: 65px;
+        width: 45px;
+      }
+    }
+
+    &.codepen {
+      @include sm-only {
+        display: none;
+      }
+
+      @include md {
+        left: 170px;
+        opacity: $logo-opacity;
+        top: 60px;
+        width: 30px;
+      }
+    }
+
+    &.cordova {
+      @include sm-only {
+        display: none;
+      }
+
+      @include md {
+        opacity: $logo-opacity;
+        right: 15px;
+        top: 160px;
+        width: 30px;
+      }
+    }
+
+    &.chrome {
+      @include md-only {
+        display: none;
+      }
+
+      @include lg {
+        left: 250px;
+        opacity: $logo-opacity;
+        top: 60px;
+        width: 40px;
+      }
+    }
+
+    &.css-3 {
+      opacity: $logo-opacity;
+      right: 2vw;
+      top: 1vh;
+      width: 12vw;
+
+      @include sm {
+        width: 9vw;
+      }
+
+      @include md {
+        width: 50px;
+      }
+    }
+
+    &.d3 {
+      @include xxs-only {
+        display: none;
+      }
+
+      @include xs {
+        opacity: $logo-opacity;
+        right: 15vw;
+        top: 6vh;
+        width: 7vw;
+      }
+
+      @include md {
+        left: 170px;
+        right: auto;
+        top: 160px;
+        width: 30px;
+      }
+    }
+
+    &.emmet {
+      @include xs-only {
+        display: none;
+      }
+
+      @include sm {
+        left: 13vw;
+        opacity: $logo-opacity;
+        top: 17vh;
+        width: 5vw;
+        z-index: 3;
+      }
+
+      @include md {
+        left: auto;
+        right: 10px;
+        top: 120px;
+        width: 30px;
+      }
+    }
+
+    &.github {
+      display: none;
+    }
+
+    &.grunt {
+      @include xs-only {
+        display: none;
+      }
+
+      @include sm {
+        opacity: $logo-opacity;
+        right: 18vw;
+        top: 15vh;
+        width: 5vw;
+        z-index: 3;
+      }
+
+      @include md {
+        left: 60px;
+        top: 160px;
+        width: 35px;
+      }
+    }
+
+    &.gulp {
+      opacity: $logo-opacity;
+      right: 2vw;
+      top: 15vh;
+      width: 8vw;
+
+      @include sm {
+        top: 12vh;
+        width: 7vw;
+      }
+
+      @include md {
+        left: 15px;
+        right: auto;
+        top: 135px;
+        width: 35px;
+      }
+    }
+
+    &.handlebars {
+      @include xs-only {
+        display: none;
+      }
+
+      @include sm {
+        left: 16vw;
+        opacity: $logo-opacity;
+        top: 4vh;
+        transform: rotate(-5deg);
+        width: 10vw;
+      }
+
+      @include md {
+        left: 110px;
+        top: 45px;
+        width: 60px;
+      }
+    }
+
+    &.html-5 {
+      left: 2vw;
+      opacity: $logo-opacity;
+      top: 15vh;
+      width: 12vw;
+      z-index: 2;
+
+      @include sm {
+        top: 13.5vh;
+        width: 9vw;
+      }
+
+      @include md {
+        left: auto;
+        right: 80px;
+        top: 10px;
+        width: 50px;
+      }
+    }
+
+    &.ionic {
+      @include sm-only {
+        display: none;
+      }
+
+      @include md {
+        opacity: $logo-opacity;
+        right: 10px;
+        top: 190px;
+        width: 80px;
+      }
+    }
+
+    &.jquery {
+      left: 12vw;
+      opacity: $logo-opacity;
+      top: 2vw;
+      width: 20vw;
+      z-index: 2;
+
+      @include sm {
+        left: 10vw;
+      }
+
+      @include md {
+        left: 67px;
+        top: 15px;
+        width: 120px;
+      }
+    }
+
+    &.js {
+      left: 2vw;
+      opacity: $logo-opacity;
+      top: 1vh;
+      width: 14vw;
+
+      @include sm {
+        width: 12vw;
+      }
+
+      @include md {
+        left: 10px;
+        top: 10px;
+        width: 80px;
+      }
+    }
+
+    &.less {
+      @include sm-only {
+        display: none;
+      }
+
+      @include md {
+        opacity: $logo-opacity;
+        right: 45px;
+        top: 135px;
+        width: 40px;
+      }
+    }
+
+    &.laravel {
+      display: none;
+    }
+
+    &.marionette {
+      @include sm-only {
+        display: none;
+      }
+
+      @include md {
+        left: 70px;
+        opacity: $logo-opacity;
+        top: 120px;
+        width: 26px;
+        z-index: 2;
+      }
+    }
+
+    &.meteor {
+      @include sm-only {
+        display: none;
+      }
+
+      @include md {
+        left: 250px;
+        opacity: $logo-opacity;
+        top: 10px;
+        width: 40px;
+      }
+    }
+
+    &.mocha {
+      @include sm-only {
+        display: none;
+      }
+
+      @include md {
+        left: 200px;
+        opacity: $logo-opacity;
+        top: 120px;
+        width: 40px;
+      }
+    }
+
+    &.modernizr {
+      @include sm-only {
+        display: none;
+      }
+
+      @include md {
+        left: 250px;
+        opacity: $logo-opacity;
+        top: 10px;
+        width: 40px;
+      }
+    }
+
+
+    &.mongodb {
+      @include sm-only {
+        display: none;
+      }
+
+      @include md {
+        opacity: $logo-opacity;
+        right: 130px;
+        top: 100px;
+        transform: rotate(20deg);
+        width: 95px;
+      }
+    }
+
+    &.mysql {
+      @include sm-only {
+        display: none;
+      }
+
+      @include md {
+        opacity: $logo-opacity;
+        right: 140px;
+        top: 75px;
+        width: 40px;
+      }
+    }
+
+    &.nodejs {
+      opacity: $logo-opacity;
+      right: 14vw;
+      top: 0.6vh;
+      width: 20vw;
+
+      @include sm {
+        top: 0.2vh;
+      }
+
+      @include md {
+        left: 120px;
+        right: auto;
+        top: 90px;
+        transform: rotate(-15deg);
+        width: 130px;
+      }
+    }
+
+    &.npm {
+      @include xs-only {
+        display: none;
+      }
+
+      @include sm {
+        opacity: $logo-opacity;
+        right: 20vw;
+        top: 4vh;
+        transform: rotate(-5deg);
+        width: 8vw;
+      }
+
+      @include md {
+        left: 110px;
+        right: auto;
+        top: 150px;
+        transform: rotate(10deg);
+        width: 50px;
+      }
+    }
+
+    &.octocat {
+      left: 40vw;
+      opacity: $logo-opacity;
+      top: 0;
+      width: 20vw;
+
+      @include xs {
+        top: 0;
+      }
+
+      @include sm {
+        left: 48vw;
+        top: 0;
+        width: 20vw;
+      }
+
+      @include smt {
+        width: 17vw;
+      }
+
+      @include md {
+        left: 190px;
+        top: 15px;
+        width: 60px;
+      }
+    }
+
+    &.php {
+      @include xs-only {
+        display: none;
+      }
+
+      @include sm {
+        left: 13vw;
+        opacity: $logo-opacity;
+        top: 12vh;
+        transform: rotate(5deg);
+        width: 7vw;
+        z-index: 2;
+      }
+
+      @include md {
+        left: auto;
+        right: 150px;
+        top: 50px;
+        width: 45px;
+      }
+    }
+
+    &.polymer {
+      @include sm-only {
+        display: none;
+      }
+
+      @include md {
+        opacity: $logo-opacity;
+        right: 95px;
+        top: 85px;
+        width: 35px;
+      }
+    }
+
+    &.python {
+      @include sm-only {
+        display: none;
+      }
+
+      @include md {
+        opacity: $logo-opacity;
+        right: 140px;
+        top: 160px;
+        width: 25px;
+      }
+    }
+
+    &.react {
+      left: 4vw;
+      opacity: $logo-opacity;
+      top: 14vw;
+      width: 12vw;
+
+      @include sm {
+        left: 2vw;
+        width: 9vw;
+      }
+
+      @include md {
+        left: 12px;
+        top: 90px;
+        width: 50px;
+      }
+    }
+
+    &.rest {
+      display: none;
+    }
+
+    &.ruby {
+      @include sm-only {
+        display: none;
+      }
+
+      @include md {
+        opacity: $logo-opacity;
+        right: 90px;
+        top: 160px;
+        width: 25px;
+      }
+    }
+
+    &.sass {
+      opacity: $logo-opacity;
+      right: 2vw;
+      top: 11vh;
+      width: 12vw;
+
+      @include sm {
+        right: 3vw;
+        top: 9vh;
+      }
+
+      @include md {
+        right: 20px;
+        top: 75px;
+        width: 70px;
+      }
+    }
+
+    &.sketch {
+      @include md-only {
+        display: none;
+      }
+
+      @include lg {
+        left: 450px;
+        opacity: $logo-opacity;
+        top: 10px;
+        width: 40px;
+      }
+    }
+
+    &.svg {
+      left: 11vw;
+      opacity: $logo-opacity;
+      top: 16vh;
+      width: 6vw;
+      z-index: 3;
+
+      @include sm {
+        left: 8vw;
+        top: 14.3vh;
+        width: 4vw;
+      }
+
+      @include md {
+        left: auto;
+        right: 60px;
+        top: 20px;
+        width: 30px;
+      }
+    }
+
+    &.swift {
+      @include md-only {
+        display: none;
+      }
+
+      @include lg {
+        left: 350px;
+        opacity: $logo-opacity;
+        top: 10px;
+        width: 40px;
+      }
+    }
+
+    &.webplatform {
+      @include sm-only {
+        display: none;
+      }
+
+      @include md {
+        opacity: $logo-opacity;
+        right: 95px;
+        top: 115px;
+        width: 30px;
+      }
+    }
+
+    &.wordpress {
+      @include xs-only {
+        display: none;
+      }
+
+      @include sm {
+        left: 17vw;
+        opacity: $logo-opacity;
+        top: 12vh;
+        width: 7vw;
+      }
+
+      @include md {
+        left: auto;
+        right: 140px;
+        top: 20px;
+        width: 40px;
+      }
+    }
+
+    &.yeoman {
+      display: none;
+    }
+  }
+}

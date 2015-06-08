@@ -19,7 +19,7 @@ gulp.task('styles', function () {
 			extension: '.scss'
 		}))
         .pipe($.plumber())
-		.pipe($.sass({
+		.pipe($.sass.sync({
 			includePaths: ['bower_components'],
 			precision: 4
 		}).on('error', $.sass.logError))
