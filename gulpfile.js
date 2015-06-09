@@ -153,7 +153,7 @@ gulp.task('serve', ['assets'], function () {
 	browserSync({
 		notify: true,
 		logPrefix: 'kollectiv',
-		files: ['app/*.html', '.tmp/styles/**/*.css', '.tmp/*.js', 'app/media/**/*'],
+		files: ['app/*.html', '.tmp/styles/**/*.css', 'app/scripts/*.js', 'app/media/**/*'],
 		server: {
 			baseDir: [config.dest(), 'app'],
 			routes: {
@@ -166,6 +166,8 @@ gulp.task('serve', ['assets'], function () {
             gulp.start('styles');
         }
     });
+
+    gulp.watch('app/styles/**/*.scss', ['']);
 	//gulp.watch('bower.json', ['bundle', browserSync.reload]);
 });
 

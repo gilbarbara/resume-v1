@@ -22,13 +22,16 @@ body {
 }
 
 .main-header {
-  margin: $grid-gutter-width 0 ($grid-gutter-width / 2);
+  margin: $grid-gutter-width auto ($grid-gutter-width / 2);
   position: relative;
   text-align: center;
-  z-index: 10;
 
   @include xs {
     margin-top: 35px;
+  }
+  
+  @include sm-only {
+    z-index: 10;
   }
 
   @include sm {
@@ -43,6 +46,10 @@ body {
   @include lg {
     margin-bottom: $grid-gutter-width * 4;
     margin-top: $grid-gutter-width * 4;
+  }
+
+  > * {
+    z-index: 10;
   }
 
   h1 {
@@ -74,7 +81,7 @@ body {
 
   > .menu {
     margin: 10px auto 0;
-    max-width: 208px;
+    width: 210px;
 
     a {
       color: #000;
@@ -111,6 +118,10 @@ body {
   @include md {
     margin: 0 ($grid-gutter-width * 4);
   }
+
+  @include lg {
+    margin: 0 auto;
+  }
 }
 
 main {
@@ -123,6 +134,7 @@ main {
   > div {
     @include jagged(#999);
     margin-bottom: $grid-gutter-width;
+    min-height: 100px;
     padding-bottom: ($grid-gutter-width / 2);
   }
 

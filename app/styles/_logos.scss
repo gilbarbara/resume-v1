@@ -1,4 +1,4 @@
-$logo-opacity: 0.6;
+$logo-opacity: 0.7;
 
 .logos {
   bottom: 0;
@@ -6,34 +6,36 @@ $logo-opacity: 0.6;
   position: absolute;
   right: 0;
   top: 0;
+  z-index: 5;
 
   img {
     opacity: 0;
     position: absolute;
-    transition: all 0.3s cubic-bezier(0, 1.1, 1, 1.8);
+    transition: all 0.3s cubic-bezier(0.550, 0.085, 0.385, 1.650);
+    z-index: 10;
 
-    &.ai {
+    &.adobe-ai {
       @include md-only {
         display: none;
       }
 
       @include lg {
-        left: 320px;
         opacity: $logo-opacity;
-        top: 10px;
+        right: 19.5%;
+        top: 65px;
         width: 40px;
       }
     }
 
-    &.ps {
+    &.adobe-ps {
       @include md-only {
         display: none;
       }
 
       @include lg {
-        left: 290px;
         opacity: $logo-opacity;
-        top: 10px;
+        right: 23%;
+        top: 15px;
         width: 40px;
       }
     }
@@ -60,7 +62,11 @@ $logo-opacity: 0.6;
         left: 70px;
         top: 84px;
         width: 26px;
-        z-index: 2;
+        z-index: 12;
+      }
+
+      @include lg {
+        left: 80px;
       }
     }
 
@@ -79,8 +85,18 @@ $logo-opacity: 0.6;
 
       @include md {
         right: 110px;
-        top: 190px;
+        top: 150px;
         width: 35px;
+      }
+
+      @include lg {
+        right: 10%;
+        top: 200px;
+      }
+
+      @include xl {
+        right: 10%;
+        top: 190px;
       }
     }
 
@@ -94,7 +110,7 @@ $logo-opacity: 0.6;
         right: 2vw;
         top: 8vh;
         width: 5vw;
-        z-index: 2;
+        z-index: 12;
       }
 
       @include md {
@@ -119,8 +135,12 @@ $logo-opacity: 0.6;
 
       @include md {
         left: 110px;
-        top: 180px;
+        top: 185px;
         width: 45px;
+      }
+
+      @include lg {
+        left: 12%;
       }
     }
 
@@ -142,6 +162,10 @@ $logo-opacity: 0.6;
         top: 65px;
         width: 45px;
       }
+
+      @include lg {
+        left: 11%;
+      }
     }
 
     &.codepen {
@@ -150,10 +174,14 @@ $logo-opacity: 0.6;
       }
 
       @include md {
-        left: 170px;
+        left: 20px;
         opacity: $logo-opacity;
-        top: 60px;
+        top: 220px;
         width: 30px;
+      }
+
+      @include lg {
+        top: 230px;
       }
     }
 
@@ -176,7 +204,7 @@ $logo-opacity: 0.6;
       }
 
       @include lg {
-        left: 250px;
+        left: 23%;
         opacity: $logo-opacity;
         top: 60px;
         width: 40px;
@@ -194,6 +222,7 @@ $logo-opacity: 0.6;
       }
 
       @include md {
+        right: 10px;
         width: 50px;
       }
     }
@@ -216,6 +245,10 @@ $logo-opacity: 0.6;
         top: 160px;
         width: 30px;
       }
+
+      @include lg {
+        left: 17%;
+      }
     }
 
     &.emmet {
@@ -233,14 +266,44 @@ $logo-opacity: 0.6;
 
       @include md {
         left: auto;
-        right: 10px;
-        top: 120px;
+        right: 100px;
+        top: 85px;
         width: 30px;
+      }
+
+      @include lg {
+        right: 11%;
+      }
+    }
+
+    &.eslint {
+      @include md-only {
+        display: none;
+      }
+
+      @include lg {
+        left: 23%;
+        opacity: $logo-opacity;
+        top: 110px;
+        width: 35px;
+      }
+
+      @include xl {
+        left: 21%;
       }
     }
 
     &.github {
-      display: none;
+      @include md-only {
+        display: none;
+      }
+
+      @include lg {
+        left: 24%;
+        opacity: $logo-opacity;
+        top: 10px;
+        width: 100px;
+      }
     }
 
     &.grunt {
@@ -257,9 +320,14 @@ $logo-opacity: 0.6;
       }
 
       @include md {
-        left: 60px;
-        top: 160px;
+        left: 70px;
+        top: 170px;
         width: 35px;
+      }
+
+      @include lg {
+        left: 6%;
+        width: 45px;
       }
     }
 
@@ -279,6 +347,10 @@ $logo-opacity: 0.6;
         right: auto;
         top: 135px;
         width: 35px;
+      }
+
+      @include lg {
+        top: 140px;
       }
     }
 
@@ -319,6 +391,10 @@ $logo-opacity: 0.6;
         right: 80px;
         top: 10px;
         width: 50px;
+      }
+
+      @include lg {
+        right: 7%;
       }
     }
 
@@ -377,14 +453,10 @@ $logo-opacity: 0.6;
 
       @include md {
         opacity: $logo-opacity;
-        right: 45px;
-        top: 135px;
+        right: 15px;
+        top: 130px;
         width: 40px;
       }
-    }
-
-    &.laravel {
-      display: none;
     }
 
     &.marionette {
@@ -407,10 +479,14 @@ $logo-opacity: 0.6;
       }
 
       @include md {
-        left: 250px;
+        left: 190px;
         opacity: $logo-opacity;
-        top: 10px;
+        top: 5px;
         width: 40px;
+      }
+
+      @include lg {
+        left: 19%;
       }
     }
 
@@ -420,26 +496,28 @@ $logo-opacity: 0.6;
       }
 
       @include md {
-        left: 200px;
+        left: 175px;
         opacity: $logo-opacity;
-        top: 120px;
+        top: 55px;
         width: 40px;
+      }
+
+      @include lg {
+        left: 17%;
       }
     }
 
     &.modernizr {
-      @include sm-only {
-        display: none;
-      }
+      display: none;
 
-      @include md {
-        left: 250px;
+      @include xl {
+        display: block;
+        left: 15%;
         opacity: $logo-opacity;
-        top: 10px;
+        top: 25px;
         width: 40px;
       }
     }
-
 
     &.mongodb {
       @include sm-only {
@@ -448,10 +526,18 @@ $logo-opacity: 0.6;
 
       @include md {
         opacity: $logo-opacity;
-        right: 130px;
-        top: 100px;
-        transform: rotate(20deg);
+        right: 120px;
+        top: 115px;
         width: 95px;
+      }
+
+      @include lg {
+        right: 13%;
+        width: 110px;
+      }
+
+      @include xl {
+        right: 11%;
       }
     }
 
@@ -462,9 +548,13 @@ $logo-opacity: 0.6;
 
       @include md {
         opacity: $logo-opacity;
-        right: 140px;
+        right: 150px;
         top: 75px;
         width: 40px;
+      }
+
+      @include lg {
+        right: 15%;
       }
     }
 
@@ -481,9 +571,13 @@ $logo-opacity: 0.6;
       @include md {
         left: 120px;
         right: auto;
-        top: 90px;
-        transform: rotate(-15deg);
-        width: 130px;
+        top: 105px;
+        width: 110px;
+      }
+
+      @include lg {
+        left: 12%;
+        transform: rotate(0deg);
       }
     }
 
@@ -507,6 +601,15 @@ $logo-opacity: 0.6;
         transform: rotate(10deg);
         width: 50px;
       }
+
+      @include lg {
+        left: 11%;
+      }
+
+      @include xl {
+        left: 8%;
+        top: 135px;
+      }
     }
 
     &.octocat {
@@ -514,6 +617,7 @@ $logo-opacity: 0.6;
       opacity: $logo-opacity;
       top: 0;
       width: 20vw;
+      z-index: 1;
 
       @include xs {
         top: 0;
@@ -530,9 +634,7 @@ $logo-opacity: 0.6;
       }
 
       @include md {
-        left: 190px;
-        top: 15px;
-        width: 60px;
+        display: none;
       }
     }
 
@@ -547,7 +649,7 @@ $logo-opacity: 0.6;
         top: 12vh;
         transform: rotate(5deg);
         width: 7vw;
-        z-index: 2;
+        z-index: 12;
       }
 
       @include md {
@@ -555,6 +657,10 @@ $logo-opacity: 0.6;
         right: 150px;
         top: 50px;
         width: 45px;
+      }
+
+      @include lg {
+        right: 14%;
       }
     }
 
@@ -565,22 +671,26 @@ $logo-opacity: 0.6;
 
       @include md {
         opacity: $logo-opacity;
-        right: 95px;
-        top: 85px;
-        width: 35px;
+        right: 7%;
+        top: 140px;
+        width: 45px;
       }
     }
 
     &.python {
-      @include sm-only {
+      @include md-only {
         display: none;
       }
 
-      @include md {
+      @include lg {
         opacity: $logo-opacity;
-        right: 140px;
+        right: 13%;
         top: 160px;
-        width: 25px;
+        width: 35px;
+      }
+
+      @include xl {
+        right: 15%;
       }
     }
 
@@ -604,18 +714,31 @@ $logo-opacity: 0.6;
 
     &.rest {
       display: none;
+
+      @include xl {
+        display: block;
+        opacity: $logo-opacity;
+        right: 27%;
+        top: 15px;
+        width: 40px;
+      }
     }
 
     &.ruby {
-      @include sm-only {
+      @include md-only {
         display: none;
       }
 
-      @include md {
+      @include lg {
         opacity: $logo-opacity;
-        right: 90px;
+        right: 18%;
         top: 160px;
-        width: 25px;
+        width: 35px;
+      }
+
+      @include xl {
+        right: 21%;
+        top: 120px;
       }
     }
 
@@ -635,6 +758,10 @@ $logo-opacity: 0.6;
         top: 75px;
         width: 70px;
       }
+
+      @include xl {
+        right: 3%;
+      }
     }
 
     &.sketch {
@@ -643,9 +770,9 @@ $logo-opacity: 0.6;
       }
 
       @include lg {
-        left: 450px;
         opacity: $logo-opacity;
-        top: 10px;
+        right: 25%;
+        top: 70px;
         width: 40px;
       }
     }
@@ -655,7 +782,7 @@ $logo-opacity: 0.6;
       opacity: $logo-opacity;
       top: 16vh;
       width: 6vw;
-      z-index: 3;
+      z-index: 12;
 
       @include sm {
         left: 8vw;
@@ -669,6 +796,10 @@ $logo-opacity: 0.6;
         top: 20px;
         width: 30px;
       }
+
+      @include lg {
+        right: 6%;
+      }
     }
 
     &.swift {
@@ -677,10 +808,14 @@ $logo-opacity: 0.6;
       }
 
       @include lg {
-        left: 350px;
+        left: 22%;
         opacity: $logo-opacity;
-        top: 10px;
-        width: 40px;
+        top: 170px;
+        width: 30px;
+      }
+
+      @include xl {
+        left: 21%;
       }
     }
 
@@ -691,9 +826,13 @@ $logo-opacity: 0.6;
 
       @include md {
         opacity: $logo-opacity;
-        right: 95px;
-        top: 115px;
+        right: 195px;
+        top: 15px;
         width: 30px;
+      }
+
+      @include lg {
+        right: 18%;
       }
     }
 
@@ -715,10 +854,22 @@ $logo-opacity: 0.6;
         top: 20px;
         width: 40px;
       }
+
+      @include lg {
+        right: 13%;
+      }
     }
 
     &.yeoman {
       display: none;
+
+      @include xl {
+        display: block;
+        left: 13.5%;
+        opacity: $logo-opacity;
+        top: 140px;
+        width: 35px;
+      }
     }
   }
 }
