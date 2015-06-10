@@ -1,17 +1,8 @@
-document.addEventListener('DOMContentLoaded', function () {
-    console.log('ready');
-    var imgs = document.querySelectorAll('.logos img');
-    for (var i = 0; i < imgs.length; ++i) {
-        imgs[i].addEventListener('dragstart', drag_start, false);
-        imgs[i].addEventListener('dragend', drop, false);
-    }
-});
-
-function drag_start(event) {
+function drag_start (event) {
     var style = window.getComputedStyle(event.target, null);
     var rect = event.target.getBoundingClientRect();
 
-    event.dataTransfer.setData("text/json",
+    event.dataTransfer.setData('text/json',
         JSON.stringify({
             top: rect.top,
             right: rect.right,
@@ -20,7 +11,7 @@ function drag_start(event) {
         }));
 }
 
-function drop(event) {
+function drop (event) {
     var el = event.target;
     var style = window.getComputedStyle(event.target, null);
 
@@ -37,3 +28,25 @@ function drop(event) {
     event.preventDefault();
     return false;
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    console.log('ready');
+    var imgs = document.querySelectorAll('.logos img');
+    for (var i = 0; i < imgs.length; ++i) {
+        //imgs[i].addEventListener('dragstart', drag_start, false);
+        imgs[i].addEventListener('dragend', drop, false);
+    }
+});
+
+document.addEventListener('scroll', function (d) {
+    var logos = document.querySelector('.logos');
+
+    if (window.scrollY > 200 && !logos.classList.contains('logos--fade')) {
+        logos.classList.add('logos--fade');
+        logos.classList.remove('logos--show');
+    }
+    else if (window.scrollY < 200 && logos.classList.contains('logos--fade')) {
+        logos.classList.add('logos--show');
+        logos.classList.remove('logos--fade');
+    }
+});

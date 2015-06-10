@@ -8,11 +8,29 @@ $logo-opacity: 0.7;
   top: 0;
   z-index: 5;
 
+  @include lg {
+    position: fixed;
+  }
+
+  &.logos--fade img {
+    animation: fade 1s forwards;
+  }
+
+  &.logos--show img {
+    //animation: fade 1s alternate backwards;
+  }
+
   img {
+    animation-direction: normal, reverse;
+    animation-duration: 1s;
     opacity: 0;
     position: absolute;
-    transition: all 0.3s cubic-bezier(0.550, 0.085, 0.385, 1.650);
+    transition: all 0.3s cubic-bezier(0.55, 0.085, 0.385, 1.65);
     z-index: 10;
+
+    @include xl {
+      opacity: 0.8 !important;
+    }
 
     &.adobe-ai {
       @include md-only {
@@ -83,8 +101,12 @@ $logo-opacity: 0.7;
         z-index: 2;
       }
 
+      @include smt {
+        top: 17vh;
+      }
+
       @include md {
-        right: 110px;
+        right: 15%;
         top: 150px;
         width: 35px;
       }
@@ -96,7 +118,7 @@ $logo-opacity: 0.7;
 
       @include xl {
         right: 10%;
-        top: 190px;
+        top: 210px;
       }
     }
 
@@ -134,13 +156,19 @@ $logo-opacity: 0.7;
       }
 
       @include md {
-        left: 110px;
+        left: 120px;
         top: 185px;
         width: 45px;
       }
 
       @include lg {
         left: 12%;
+      }
+
+      @include xl {
+        left: 11.5%;
+        top: 160px;
+        width: 50px;
       }
     }
 
@@ -196,6 +224,11 @@ $logo-opacity: 0.7;
         top: 160px;
         width: 30px;
       }
+
+      @include xl {
+        top: 150px;
+        width: 50px;
+      }
     }
 
     &.chrome {
@@ -208,6 +241,10 @@ $logo-opacity: 0.7;
         opacity: $logo-opacity;
         top: 60px;
         width: 40px;
+      }
+
+      @include xl {
+        left: 24%;
       }
     }
 
@@ -239,8 +276,12 @@ $logo-opacity: 0.7;
         width: 7vw;
       }
 
+      @include smt {
+        width: 5vw;
+      }
+
       @include md {
-        left: 170px;
+        left: 175px;
         right: auto;
         top: 160px;
         width: 30px;
@@ -248,6 +289,12 @@ $logo-opacity: 0.7;
 
       @include lg {
         left: 17%;
+      }
+
+      @include xl {
+        left: 17%;
+        top: 150px;
+        width: 40px;
       }
     }
 
@@ -259,7 +306,7 @@ $logo-opacity: 0.7;
       @include sm {
         left: 13vw;
         opacity: $logo-opacity;
-        top: 17vh;
+        top: 16vh;
         width: 5vw;
         z-index: 3;
       }
@@ -273,6 +320,12 @@ $logo-opacity: 0.7;
 
       @include lg {
         right: 11%;
+      }
+
+      @include xl {
+        right: 10.5%;
+        top: 70px;
+        width: 40px;
       }
     }
 
@@ -290,6 +343,8 @@ $logo-opacity: 0.7;
 
       @include xl {
         left: 21%;
+        top: 105px;
+        width: 45px;
       }
     }
 
@@ -304,6 +359,11 @@ $logo-opacity: 0.7;
         top: 10px;
         width: 100px;
       }
+
+      @include xl {
+        left: 25%;
+        width: 120px;
+      }
     }
 
     &.grunt {
@@ -317,6 +377,10 @@ $logo-opacity: 0.7;
         top: 15vh;
         width: 5vw;
         z-index: 3;
+      }
+
+      @include smt {
+        top: 16vh;
       }
 
       @include md {
@@ -379,11 +443,16 @@ $logo-opacity: 0.7;
       opacity: $logo-opacity;
       top: 15vh;
       width: 12vw;
-      z-index: 2;
+      z-index: 12;
 
       @include sm {
         top: 13.5vh;
         width: 9vw;
+      }
+
+      @include smt {
+        top: 13vh;
+        width: 7vw;
       }
 
       @include md {
@@ -409,6 +478,11 @@ $logo-opacity: 0.7;
         top: 190px;
         width: 80px;
       }
+
+      @include xl {
+        top: 210px;
+        width: 100px;
+      }
     }
 
     &.jquery {
@@ -416,7 +490,7 @@ $logo-opacity: 0.7;
       opacity: $logo-opacity;
       top: 2vw;
       width: 20vw;
-      z-index: 2;
+      z-index: 12;
 
       @include sm {
         left: 10vw;
@@ -457,6 +531,12 @@ $logo-opacity: 0.7;
         top: 130px;
         width: 40px;
       }
+
+      @include xl {
+        right: 5.5%;
+        top: 170px;
+        width: 50px;
+      }
     }
 
     &.marionette {
@@ -479,7 +559,7 @@ $logo-opacity: 0.7;
       }
 
       @include md {
-        left: 190px;
+        left: 200px;
         opacity: $logo-opacity;
         top: 5px;
         width: 40px;
@@ -487,6 +567,11 @@ $logo-opacity: 0.7;
 
       @include lg {
         left: 19%;
+      }
+
+      @include xl {
+        left: 20%;
+        width: 50px;
       }
     }
 
@@ -505,6 +590,10 @@ $logo-opacity: 0.7;
       @include lg {
         left: 17%;
       }
+
+      @include xl {
+        width: 55px;
+      }
     }
 
     &.modernizr {
@@ -515,7 +604,7 @@ $logo-opacity: 0.7;
         left: 15%;
         opacity: $logo-opacity;
         top: 25px;
-        width: 40px;
+        width: 45px;
       }
     }
 
@@ -537,7 +626,8 @@ $logo-opacity: 0.7;
       }
 
       @include xl {
-        right: 11%;
+        right: 10%;
+        width: 140px;
       }
     }
 
@@ -548,7 +638,7 @@ $logo-opacity: 0.7;
 
       @include md {
         opacity: $logo-opacity;
-        right: 150px;
+        right: 160px;
         top: 75px;
         width: 40px;
       }
@@ -579,6 +669,11 @@ $logo-opacity: 0.7;
         left: 12%;
         transform: rotate(0deg);
       }
+
+      @include xl {
+        left: 10%;
+        width: 130px;
+      }
     }
 
     &.npm {
@@ -608,7 +703,7 @@ $logo-opacity: 0.7;
 
       @include xl {
         left: 8%;
-        top: 135px;
+        top: 140px;
       }
     }
 
@@ -671,9 +766,15 @@ $logo-opacity: 0.7;
 
       @include md {
         opacity: $logo-opacity;
-        right: 7%;
+        right: 8%;
         top: 140px;
         width: 45px;
+      }
+
+      @include xl {
+        right: 10%;
+        top: 160px;
+        width: 50px;
       }
     }
 
@@ -690,7 +791,8 @@ $logo-opacity: 0.7;
       }
 
       @include xl {
-        right: 15%;
+        right: 16%;
+        top: 170px;
       }
     }
 
@@ -703,6 +805,10 @@ $logo-opacity: 0.7;
       @include sm {
         left: 2vw;
         width: 9vw;
+      }
+
+      @include smt {
+        top: 8vh;
       }
 
       @include md {
@@ -737,8 +843,8 @@ $logo-opacity: 0.7;
       }
 
       @include xl {
-        right: 21%;
-        top: 120px;
+        right: 22%;
+        top: 130px;
       }
     }
 
@@ -760,7 +866,8 @@ $logo-opacity: 0.7;
       }
 
       @include xl {
-        right: 3%;
+        right: 2%;
+        width: 100px;
       }
     }
 
@@ -775,6 +882,11 @@ $logo-opacity: 0.7;
         top: 70px;
         width: 40px;
       }
+
+      @include xl {
+        right: 24%;
+        width: 60px;
+      }
     }
 
     &.svg {
@@ -782,12 +894,16 @@ $logo-opacity: 0.7;
       opacity: $logo-opacity;
       top: 16vh;
       width: 6vw;
-      z-index: 12;
+      z-index: 13;
 
       @include sm {
         left: 8vw;
         top: 14.3vh;
         width: 4vw;
+      }
+
+      @include smt {
+        top: 14vh;
       }
 
       @include md {
@@ -815,7 +931,7 @@ $logo-opacity: 0.7;
       }
 
       @include xl {
-        left: 21%;
+        left: 22%;
       }
     }
 
@@ -865,11 +981,23 @@ $logo-opacity: 0.7;
 
       @include xl {
         display: block;
-        left: 13.5%;
+        left: 15%;
         opacity: $logo-opacity;
-        top: 140px;
+        top: 200px;
         width: 35px;
       }
     }
+  }
+}
+
+@keyframes fade {
+  0% {
+    display: block;
+    opacity: $logo-opacity;
+  }
+
+  100% {
+    display: none;
+    opacity: 0;
   }
 }

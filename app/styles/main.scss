@@ -1,8 +1,7 @@
 @import 'base/variables';
 @import 'base/utils';
-
-
 @import 'base/bootstrap';
+
 @import 'logos';
 @import url('//fonts.googleapis.com/css?family=Roboto+Condensed:400,700');
 
@@ -29,7 +28,7 @@ body {
   @include xs {
     margin-top: 35px;
   }
-  
+
   @include sm-only {
     z-index: 10;
   }
@@ -44,8 +43,8 @@ body {
   }
 
   @include lg {
-    margin-bottom: $grid-gutter-width * 4;
-    margin-top: $grid-gutter-width * 4;
+    margin-bottom: $grid-gutter-width * 2;
+    margin-top: $grid-gutter-width * 2;
   }
 
   > * {
@@ -81,7 +80,11 @@ body {
 
   > .menu {
     margin: 10px auto 0;
-    width: 210px;
+    width: 200px;
+
+    @include lg {
+      width: 340px;
+    }
 
     a {
       color: #000;
@@ -89,6 +92,10 @@ body {
       float: left;
       position: relative;
       text-decoration: none;
+
+      @include lg {
+        font-size: 1.6rem;
+      }
 
       &:before {
         background: $brand-primary;
@@ -124,21 +131,35 @@ body {
   }
 }
 
-main {
-
-}
-
 .skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-top: $grid-gutter-width;
+  position: relative;
+  z-index: 15;
 
   > div {
     @include jagged(#999);
     margin-bottom: $grid-gutter-width;
     min-height: 100px;
-    padding-bottom: ($grid-gutter-width / 2);
+    padding: 0 ($grid-gutter-width / 2) ($grid-gutter-width / 2);
+    width: 100%;
+
+    @include lg {
+      width: 50%;
+    }
+
+    &:last-of-type {
+      flex-grow: 1;
+    }
   }
 
   h4 {
     margin-top: 0;
   }
+}
+
+.item {
+  margin-bottom: 3rem;
 }

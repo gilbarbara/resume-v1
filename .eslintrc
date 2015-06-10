@@ -8,8 +8,7 @@
   },
   "globals": {
     "$": true,
-    "Modernizr": false,
-    "module": false
+    "Modernizr": false
   },
   "rules": {
     "strict": 0,
@@ -175,7 +174,10 @@
     ],
     "space-infix-ops": 1,
     "space-return-throw-case": 1,
-    "space-unary-ops": 1
+    "space-unary-ops": 1,
 
+    // Node
+
+    "no-mixed-requires": 0
   }
 }

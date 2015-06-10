@@ -1,0 +1,38 @@
+
+.row-flex,
+.row-flex > [class*='col-'] {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.row-flex-wrap {
+  align-content: flex-start;
+  flex: 0;
+  flex-flow: row wrap;
+}
+
+.row-flex > [class*='col-'],
+.container-flex > [class*='col-'] {
+  margin: -0.3px; // hack adjust for wrapping */
+}
+
+.container-flex > [class*='col-'] div,
+.row-flex > [class*='col-'] div {
+  width: 100%;
+}
+
+.flex-col {
+  align-items: center;
+  display: flex;
+  flex: 1 100%;
+  flex-flow: column nowrap;
+}
+
+.flex-row {
+  align-self: center;
+}
+
+.flex-grow {
+  display: flex;
+  flex: 2;
+}

@@ -17,8 +17,8 @@
     <!-- build:css(.tmp) styles/main.min.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-    <!-- build:js(bower_components) scripts/vendor/modernizr.min.js -->
-    <script src="bower_components/modernizr/modernizr.js"></script>
+    <!-- build:js(bower_components) scripts/modernizr.min.js -->
+    <script src="/bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
 
 </head>
@@ -90,29 +90,29 @@
 
 <main>
     <div class="container">
-        <div class="skills row">
-            <div class="col-xs-12 col-lg-6">
+        <div class="skills">
+            <div class="branch">
                 <h4>HTML/CSS</h4>
 
                 <p>HTML5, CSS3, Sass, Less, Emmet, SVG, Responsive Web Design, Bootstrap, Micro-frameworks, SEO</p>
             </div>
-            <div class="col-xs-12 col-lg-6">
+            <div class="branch">
                 <h4>Javascript</h4>
 
                 <p>Node.js, jQuery, React, Backbone/Marionette, Meteor, D3, Handlebars, Jasmine/Mocha. ES 5/6/7</p>
             </div>
 
-            <div class="col-xs-12 col-lg-6">
+            <div class="branch">
                 <h4>Back-end</h4>
 
                 <p>PHP (Wordpress/Laravel), Objective-C, Ruby, Python, MySQL, MongoDB, Redis, Rest-API, Bash</p>
             </div>
-            <div class="col-xs-12 col-lg-6">
+            <div class="branch">
                 <h4>Dev Tools</h4>
 
                 <p>Gulp, Grunt, Git, Browserify, Bower, NPM, Yeoman, Cordova, Ionic</p>
             </div>
-            <div class="col-xs-12 col-lg-6">
+            <div class="branch">
                 <h4>UI/UX</h4>
 
                 <p>Adobe PS/AI, Sketch, Axure, Invision, OmniGraffle, Optimizely</p>
@@ -160,12 +160,10 @@
         Um dos DJs pioneiros do Brasil na ativa desde 1987 – <a href="http://rraurl.com/gilbarbara" target="_blank">http://rraurl.com/gilbarbara</a>
     </div>
 </main>
-<!-- build:js(bower_components) scripts/vendor.min.js -->
-<script src="/bower_components/underscore/underscore.js"></script>
-<script src="/bower_components/jquery/dist/jquery.js"></script>
-<!-- endbuild -->
 
-<!-- build:js({.tmp,app}) scripts/main.min.js -->
+<!-- build:js({bower_components,app}) scripts/main.min.js -->
+<script src="../bower_components/underscore/underscore.js"></script>
+<script src="../bower_components/jquery/dist/jquery.js"></script>
 <script src="scripts/main.js"></script>
 <!-- endbuild -->
 </body>
