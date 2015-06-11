@@ -1,7 +1,6 @@
 @import 'base/variables';
 @import 'base/utils';
 @import 'base/bootstrap';
-
 @import 'logos';
 @import url('//fonts.googleapis.com/css?family=Roboto+Condensed:400,700');
 
@@ -131,6 +130,13 @@ body {
   }
 }
 
+main {
+  @include lg {
+    position: relative;
+    z-index: 10;
+  }
+}
+
 .skills {
   display: flex;
   flex-wrap: wrap;
@@ -160,6 +166,44 @@ body {
   }
 }
 
-.item {
-  margin-bottom: 3rem;
+.experience {
+  > div {
+
+    .title {
+      display: block;
+      font-size: 1.6rem;
+    }
+
+    span {
+      color: #666;
+      display: block;
+      margin-top: 3rem;
+    }
+  }
 }
+
+.projects {
+  display: flex;
+  justify-content: space-around;
+
+  > a {
+    display: inline-block;
+    padding: 0 100px;
+    text-align: center;
+
+    &:first-of-type {
+      padding-left: 0;
+    }
+
+    &:last-of-type {
+      padding-right: 0;
+    }
+
+    img {
+      display: block;
+      margin-bottom: 5px;
+      max-width: 100%;
+    }
+  }
+}
+
