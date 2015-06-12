@@ -1,4 +1,4 @@
-Deveveloper Resume
+gilbarbara.github.io
 ====================
 
-[Check it out](http://gilbarbara.github.io)
+[My Resume](http://gilbarbara.github.io)
