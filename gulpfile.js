@@ -152,9 +152,20 @@ gulp.task('serve', ['assets'], function () {
     //gulp.watch('bower.json', ['bundle', browserSync.reload]);
 });
 
-gulp.task('build', ['clean'], function () {
+gulp.task('gh-pages', function () {
+    return gulp.src('dist/**/*')
+        .pipe($.ghPages({
+            force: true
+        }));
+});
+
+gulp.task('deploy', function (cb) {
+    runSequence('build', ['gh-pages'], cb);
+});
+
+gulp.task('build', ['clean'], function (cb) {
     process.env.NODE_ENV = 'production';
-    runSequence('lint', ['assets', 'bundle'], 'sizer');
+    runSequence('lint', ['assets', 'bundle'], 'sizer', cb);
 });
 
 gulp.task('default', ['serve']);
