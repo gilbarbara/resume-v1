@@ -1,16 +1,3 @@
-function drag_start (event) {
-    var style = window.getComputedStyle(event.target, null);
-    var rect = event.target.getBoundingClientRect();
-
-    event.dataTransfer.setData('text/json',
-        JSON.stringify({
-            top: rect.top,
-            right: rect.right,
-            bottom: rect.bottom,
-            left: rect.left
-        }));
-}
-
 function drop (event) {
     var el = event.target;
     var style = window.getComputedStyle(event.target, null);
@@ -29,24 +16,25 @@ function drop (event) {
     return false;
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    console.log('ready');
-    var imgs = document.querySelectorAll('.logos img');
-    for (var i = 0; i < imgs.length; ++i) {
-        //imgs[i].addEventListener('dragstart', drag_start, false);
-        imgs[i].addEventListener('dragend', drop, false);
-    }
-});
-
-document.addEventListener('scroll', function (d) {
+function scrolled () {
     var logos = document.querySelector('.logos');
 
-    if (window.scrollY > 200 && !logos.classList.contains('logos--fade')) {
+    if (window.scrollY > 75 && !logos.classList.contains('logos--fade')) {
         logos.classList.add('logos--fade');
         logos.classList.remove('logos--show');
     }
-    else if (window.scrollY < 200 && logos.classList.contains('logos--fade')) {
+    else if (window.scrollY < 75 && logos.classList.contains('logos--fade')) {
         logos.classList.add('logos--show');
         logos.classList.remove('logos--fade');
     }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    var imgs = document.querySelectorAll('.logos img');
+    for (var i = 0; i < imgs.length; ++i) {
+        imgs[i].addEventListener('dragend', drop, false);
+    }
+    scrolled();
 });
+
+document.addEventListener('scroll', scrolled);

@@ -3,15 +3,10 @@ $logo-opacity: 0.7;
 .logos {
   bottom: 0;
   left: 0;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   z-index: 5;
-
-  @include lg {
-    height: 280px;
-    position: fixed;
-  }
 
   &.logos--fade img {
     &:nth-of-type(3n+1) {
@@ -76,6 +71,34 @@ $logo-opacity: 0.7;
         opacity: $logo-opacity;
         right: 23%;
         top: 15px;
+        width: 40px;
+      }
+
+      @include xl {
+        right: 22%;
+      }
+    }
+
+    &.angular {
+      display: none;
+
+      @include xl {
+        display: block;
+        left: 10.5%;
+        opacity: $logo-opacity;
+        top: 215px;
+        width: 40px;
+      }
+    }
+
+    &.aws {
+      display: none;
+
+      @include xl {
+        display: block;
+        opacity: $logo-opacity;
+        right: 24.5%;
+        top: 70px;
         width: 40px;
       }
     }
@@ -364,9 +387,27 @@ $logo-opacity: 0.7;
       }
 
       @include xl {
-        left: 21%;
-        top: 105px;
+        left: 21.5%;
+        top: 110px;
         width: 45px;
+      }
+    }
+
+    &.git {
+      @include md-only {
+        display: none;
+      }
+
+      @include lg {
+        opacity: $logo-opacity;
+        right: 15%;
+        top: 190px;
+        width: 35px;
+      }
+
+      @include xl {
+        right: 13.5%;
+        top: 200px;
       }
     }
 
@@ -379,12 +420,11 @@ $logo-opacity: 0.7;
         left: 24%;
         opacity: $logo-opacity;
         top: 10px;
-        width: 100px;
+        width: 40px;
       }
 
       @include xl {
         left: 25%;
-        width: 120px;
       }
     }
 
@@ -507,6 +547,18 @@ $logo-opacity: 0.7;
       }
     }
 
+    &.jasmine {
+      display: none;
+
+      @include xl {
+        display: block;
+        left: 14.5%;
+        opacity: $logo-opacity;
+        top: 55px;
+        width: 35px;
+      }
+    }
+
     &.jquery {
       left: 12vw;
       opacity: $logo-opacity;
@@ -614,6 +666,7 @@ $logo-opacity: 0.7;
       }
 
       @include xl {
+        left: 17.5%;
         width: 55px;
       }
     }
@@ -865,8 +918,8 @@ $logo-opacity: 0.7;
       }
 
       @include xl {
-        right: 22%;
-        top: 130px;
+        right: 21%;
+        top: 160px;
       }
     }
 
@@ -906,8 +959,8 @@ $logo-opacity: 0.7;
       }
 
       @include xl {
-        right: 24%;
-        width: 60px;
+        right: 22.5%;
+        top: 115px;
       }
     }
 
@@ -953,7 +1006,7 @@ $logo-opacity: 0.7;
       }
 
       @include xl {
-        left: 22%;
+        left: 21%;
       }
     }
 
