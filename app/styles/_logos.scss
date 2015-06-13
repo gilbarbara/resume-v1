@@ -1,4 +1,4 @@
-$logo-opacity: 0.7;
+$logo-opacity: 0.8;
 
 .logos {
   bottom: 0;
@@ -9,33 +9,19 @@ $logo-opacity: 0.7;
   z-index: 5;
 
   &.logos--fade img {
-    &:nth-of-type(3n+1) {
-      opacity: 0 !important;
-      transition: opacity 0.5s;
-    }
-
-    &:nth-of-type(3n+2) {
-      opacity: 0 !important;
-      transition: opacity 1s;
-    }
-
-    &:nth-of-type(3n+3) {
-      opacity: 0 !important;
-      transition: opacity 1.5s;
+    @for $i from 1 through 6 {
+      &:nth-of-type(6n+#{$i}) {
+        opacity: 0 !important;
+        transition: opacity #{$i * 0.5}s;
+      }
     }
   }
 
   &.logos--show img {
-    &:nth-of-type(3n+1) {
-      transition: opacity 3s;
-    }
-
-    &:nth-of-type(3n+2) {
-      transition: opacity 2s;
-    }
-
-    &:nth-of-type(3n+3) {
-      transition: opacity 1s;
+    @for $i from 1 through 6 {
+      &:nth-of-type(6n+#{$i}) {
+        transition: opacity #{$i * 0.3}s;
+      }
     }
   }
 
@@ -46,7 +32,7 @@ $logo-opacity: 0.7;
     z-index: 10;
 
     @include xl {
-      opacity: 0.8 !important;
+      opacity: 0.9 !important;
     }
 
     &.adobe-ai {
