@@ -187,7 +187,9 @@ gulp.task('assets', function (cb) {
     runSequence('styles', 'scripts', cb); //, 'fonts'
 });
 
-gulp.task('clean', del.bind(null, [target() + '/*']));
+gulp.task('clean', function(cb) {
+	del([target() + '/*'], cb);
+});
 
 gulp.task('serve', ['assets'], function () {
     browserSync({
