@@ -101,14 +101,16 @@ gulp.task('lint', function () {
 });
 
 gulp.task('media', function () {
-    return gulp.src(['app/media/**/*.{jpg,gif,png}'])
-        .pipe($.cache($.imagemin({
+    return gulp.src([
+        '**/*.{jpg,gif,png}'
+    	], { cwd: 'app/media/' })
+        .pipe($.imagemin({
             verbose: true
         }, {
             progressive: true,
             interlaced: true
-        })))
-        .pipe(gulp.dest(target() + '/media'))
+        }))
+        .pipe(gulp.dest('dist/media'))
         .pipe($.size({
             title: 'Media'
         }));
@@ -134,7 +136,7 @@ gulp.task('bundle', function () {
     vendor = gulp.src('bower_components/modernizr/modernizr.js')
         .pipe($.uglify())
         .pipe($.rename('modernizr.min.js'))
-        .pipe(gulp.dest(target() + '/scripts'))
+        .pipe(gulp.dest('dist/scripts'))
         .pipe($.size({
             title: 'Vendor'
         }));
@@ -165,15 +167,13 @@ gulp.task('bundle', function () {
     svg = gulp.src([
         '**/*.svg'
     ], { base: 'app/media/' })
-        .pipe(gulp.dest(target() + '/media'))
+        .pipe(gulp.dest('dist/media'))
         .pipe($.size({
             title: 'SVG'
         }));
 
     return merge(html, vendor, extras, svg);
 });
-
-gulp.task('clean', del.bind(null, [target() + '/*']));
 
 gulp.task('sizer', function () {
     return gulp.src(target() + '/**/*')
