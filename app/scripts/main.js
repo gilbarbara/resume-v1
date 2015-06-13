@@ -1,8 +1,8 @@
-function drop (event) {
+var $ = require('jquery');
+
+var drop = (event) => {
     var el = event.target;
     var style = window.getComputedStyle(event.target, null);
-
-    console.log(style.height);
 
     if (style.left !== 'auto') {
         el.style.left = event.clientX + 'px';
@@ -14,9 +14,9 @@ function drop (event) {
     el.style.top = (event.clientY - parseInt(el.height, 10)) + 'px';
     event.preventDefault();
     return false;
-}
+};
 
-function scrolled () {
+var scrolled = () => {
     var logos = document.querySelector('.logos');
 
     if (window.scrollY > 75 && !logos.classList.contains('logos--fade')) {
@@ -27,7 +27,7 @@ function scrolled () {
         logos.classList.add('logos--show');
         logos.classList.remove('logos--fade');
     }
-}
+};
 
 document.addEventListener('DOMContentLoaded', function () {
     var imgs = document.querySelectorAll('.logos img');

@@ -1,10 +1,15 @@
 var gulp        = require('gulp'),
     $           = require('gulp-load-plugins')(),
+    browserify  = require('browserify'),
     bowerFiles  = require('main-bower-files')(),
+    buffer      = require('vinyl-buffer'),
     browserSync = require('browser-sync'),
     del         = require('del'),
     merge       = require('merge-stream'),
-    runSequence = require('run-sequence');
+    path        = require('path'),
+    runSequence = require('run-sequence'),
+    source      = require('vinyl-source-stream'),
+    watchify    = require('watchify');
 
 var isProduction = function () {
         return process.env.NODE_ENV === 'production';
@@ -12,6 +17,51 @@ var isProduction = function () {
     target       = function () {
         return (isProduction() ? 'dist' : '.tmp');
     };
+
+function watchifyTask (options) {
+    var bundler, rebundle, iteration = 0;
+    bundler = browserify({
+        entries: path.join(__dirname, '/app/scripts/main.js'),
+        insertGlobals: true,
+        cache: {},
+        //debug: options.watch,
+        packageCache: {},
+        fullPaths: options.watch, //options.watch
+        transform: [
+            ['babelify', { ignore: /bower_components/ }]
+        ]
+    });
+
+    if (options.watch) {
+        bundler = watchify(bundler);
+    }
+
+    rebundle = function () {
+        var stream = bundler.bundle();
+
+        if (options.watch) {
+            stream.on('error', function (err) {
+                console.log(err);
+            });
+        }
+
+        stream
+            .pipe(source($.if(options.watch, 'main.js', 'main.min.js')))
+            .pipe(buffer())
+            .pipe($.if(!options.watch, $.uglify()))
+            .pipe(gulp.dest(target() + '/scripts'))
+            .pipe($.tap(function () {
+                if (iteration === 0 && options.cb) {
+                    options.cb();
+                }
+                iteration++;
+            }));
+    };
+
+    bundler.on('update', rebundle);
+    return rebundle();
+}
+
 
 gulp.task('styles', function () {
     return gulp.src('app/styles/main.scss')
@@ -33,6 +83,14 @@ gulp.task('styles', function () {
         }));
 });
 
+// Scripts
+gulp.task('scripts', function (cb) {
+    return watchifyTask({
+        watch: !isProduction(),
+        cb: cb
+    });
+});
+
 gulp.task('lint', function () {
     return gulp.src('app/scripts/**/*')
         .pipe($.eslint({
@@ -43,7 +101,7 @@ gulp.task('lint', function () {
 });
 
 gulp.task('media', function () {
-    return gulp.src(['app/media/**/*.{jpg,gif,png}', '!app/media/thumbnails/**'])
+    return gulp.src(['app/media/**/*.{jpg,gif,png}'])
         .pipe($.cache($.imagemin({
             verbose: true
         }, {
@@ -105,8 +163,8 @@ gulp.task('bundle', function () {
         }));
 
     svg = gulp.src([
-        'app/media/**/*.svg'
-    ])
+        '**/*.svg'
+    ], { base: 'app/media/' })
         .pipe(gulp.dest(target() + '/media'))
         .pipe($.size({
             title: 'SVG'
@@ -126,7 +184,7 @@ gulp.task('sizer', function () {
 });
 
 gulp.task('assets', function (cb) {
-    runSequence('styles', cb); //, 'fonts'
+    runSequence('styles', 'scripts', cb); //, 'fonts'
 });
 
 gulp.task('clean', del.bind(null, [target() + '/*']));
@@ -135,7 +193,7 @@ gulp.task('serve', ['assets'], function () {
     browserSync({
         notify: true,
         logPrefix: 'resume',
-        files: ['app/*.html', '.tmp/styles/**/*.css', 'app/scripts/*.js', 'app/media/**/*'],
+        files: ['app/*.html', '.tmp/styles/**/*.css', '.tmp/scripts/*.js', 'app/media/**/*'],
         server: {
             baseDir: [target(), 'app'],
             routes: {
@@ -165,7 +223,7 @@ gulp.task('deploy', function (cb) {
 
 gulp.task('build', ['clean'], function (cb) {
     process.env.NODE_ENV = 'production';
-    runSequence('lint', ['assets', 'bundle'], 'sizer', cb);
+    runSequence('lint', ['assets', 'media', 'bundle'], 'sizer', cb);
 });
 
 gulp.task('default', ['serve']);
