@@ -225,7 +225,7 @@ gulp.task('deploy', function (cb) {
 
 gulp.task('build', ['clean'], function (cb) {
     process.env.NODE_ENV = 'production';
-    runSequence('lint', ['assets', 'media', 'bundle'], 'sizer', cb);
+    runSequence('lint', 'assets', ['media', 'bundle'], 'sizer', cb);
 });
 
 gulp.task('default', ['serve']);
