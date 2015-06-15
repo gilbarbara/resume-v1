@@ -1,18 +1,27 @@
 $logo-opacity: 0.8;
 
 .logos {
-  bottom: 0;
   left: 0;
+  min-height: 160px;
   position: fixed;
   right: 0;
   top: 0;
   z-index: 5;
 
+  @include xs {
+    min-height: 200px;
+  }
+
+  @include md {
+    min-height: 270px;
+  }
+
   &.logos--fade img {
     @for $i from 1 through 6 {
       &:nth-of-type(6n+#{$i}) {
         opacity: 0 !important;
-        transition: opacity #{$i * 0.5}s;
+        transform: translate(-#{percentage($i * 0.2)}, -1000%);
+        transition: all #{$i * 0.5}s;
       }
     }
   }
@@ -20,7 +29,8 @@ $logo-opacity: 0.8;
   &.logos--show img {
     @for $i from 1 through 6 {
       &:nth-of-type(6n+#{$i}) {
-        transition: opacity #{$i * 0.3}s;
+        transform: translate(0, 0);
+        transition: all #{$i * 0.2}s;
       }
     }
   }
@@ -764,7 +774,7 @@ $logo-opacity: 0.8;
 
       @include xl {
         left: 8%;
-        top: 140px;
+        top: 145px;
       }
     }
 

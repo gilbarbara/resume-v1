@@ -1,6 +1,6 @@
 var $ = require('jquery');
 
-var drop = (event) => {
+var drop = event => {
     var el = event.target;
     var style = window.getComputedStyle(event.target, null);
 
