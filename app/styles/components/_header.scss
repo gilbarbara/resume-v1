@@ -23,6 +23,15 @@
     margin-top: $grid-gutter-width * 2;
   }
 
+  @include lg {
+    margin-top: $grid-gutter-width * 3;
+  }
+
+  @include xl {
+    margin-top: $grid-gutter-width * 5;
+  }
+
+
   h1 {
     background-color: #000;
     color: #fff;
@@ -128,6 +137,10 @@
       padding: ($grid-gutter-width * 3) 0;
     }
 
+    @include xl {
+      padding: ($grid-gutter-width * 4) 0;
+    }
+
     p {
       font-size: 2.2rem;
       font-weight: 700;
@@ -143,6 +156,10 @@
 
       @include lg {
         font-size: 3rem;
+      }
+
+      @include xl {
+        font-size: 3.6rem;
       }
 
       + p {

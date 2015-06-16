@@ -80,22 +80,28 @@ $logo-opacity: 0.8;
 
       @include xl {
         display: block;
-        left: 10.5%;
+        left: 9.5%;
         opacity: $logo-opacity;
         top: 215px;
-        width: 40px;
+        width: 35px;
       }
     }
 
     &.aws {
       display: none;
 
-      @include xl {
+      @include lg {
         display: block;
         opacity: $logo-opacity;
+        right: 28%;
+        top: 10px;
+        width: 40px;
+      }
+
+      @include xl {
         right: 24.5%;
         top: 70px;
-        width: 40px;
+        width: 50px;
       }
     }
 
@@ -126,6 +132,10 @@ $logo-opacity: 0.8;
 
       @include lg {
         left: 80px;
+      }
+
+      @include xl {
+        width: 30px;
       }
     }
 
@@ -159,7 +169,7 @@ $logo-opacity: 0.8;
 
       @include xl {
         right: 10%;
-        top: 210px;
+        top: 240px;
       }
     }
 
@@ -192,7 +202,6 @@ $logo-opacity: 0.8;
         left: 20vw;
         opacity: $logo-opacity;
         top: 7vh;
-        transform: rotate(-5deg);
         width: 8vw;
       }
 
@@ -207,8 +216,8 @@ $logo-opacity: 0.8;
       }
 
       @include xl {
-        left: 11.5%;
-        top: 160px;
+        left: 9.5%;
+        top: 155px;
         width: 50px;
       }
     }
@@ -234,6 +243,11 @@ $logo-opacity: 0.8;
 
       @include lg {
         left: 11%;
+      }
+
+      @include xl {
+        left: 10%;
+        width: 55px;
       }
     }
 
@@ -266,7 +280,13 @@ $logo-opacity: 0.8;
         width: 30px;
       }
 
+      @include lg {
+        top: 155px;
+        width: 40px;
+      }
+
       @include xl {
+        right: 10px;
         top: 150px;
         width: 50px;
       }
@@ -286,6 +306,7 @@ $logo-opacity: 0.8;
 
       @include xl {
         left: 24%;
+        top: 80px;
       }
     }
 
@@ -333,9 +354,9 @@ $logo-opacity: 0.8;
       }
 
       @include xl {
-        left: 17%;
-        top: 150px;
-        width: 40px;
+        left: 13.5%;
+        top: 185px;
+        width: 45px;
       }
     }
 
@@ -360,7 +381,7 @@ $logo-opacity: 0.8;
       }
 
       @include lg {
-        right: 11%;
+        right: 10%;
       }
 
       @include xl {
@@ -383,8 +404,8 @@ $logo-opacity: 0.8;
       }
 
       @include xl {
-        left: 21.5%;
-        top: 110px;
+        left: 21%;
+        top: 145px;
         width: 45px;
       }
     }
@@ -397,30 +418,37 @@ $logo-opacity: 0.8;
       @include lg {
         opacity: $logo-opacity;
         right: 15%;
-        top: 190px;
+        top: 195px;
         width: 35px;
       }
 
       @include xl {
         right: 13.5%;
         top: 200px;
+        width: 50px;
       }
     }
 
     &.github {
-      @include md-only {
+      @include sm-only {
         display: none;
       }
 
-      @include lg {
-        left: 24%;
+      @include md {
+        left: 200px;
         opacity: $logo-opacity;
         top: 10px;
         width: 40px;
       }
 
+      @include lg {
+        left: 19%;
+      }
+
       @include xl {
-        left: 25%;
+        left: 24%;
+        top: 5px;
+        width: 55px;
       }
     }
 
@@ -449,7 +477,12 @@ $logo-opacity: 0.8;
 
       @include lg {
         left: 6%;
-        width: 45px;
+        width: 40px;
+      }
+
+      @include xl {
+        left: 5%;
+        top: 180px;
       }
     }
 
@@ -458,6 +491,7 @@ $logo-opacity: 0.8;
       right: 2vw;
       top: 15vh;
       width: 8vw;
+      z-index: 12;
 
       @include sm {
         top: 12vh;
@@ -538,8 +572,9 @@ $logo-opacity: 0.8;
       }
 
       @include xl {
-        top: 210px;
-        width: 100px;
+        right: 25px;
+        top: 200px;
+        width: 110px;
       }
     }
 
@@ -548,7 +583,7 @@ $logo-opacity: 0.8;
 
       @include xl {
         display: block;
-        left: 14.5%;
+        left: 15.5%;
         opacity: $logo-opacity;
         top: 55px;
         width: 35px;
@@ -602,10 +637,14 @@ $logo-opacity: 0.8;
         width: 40px;
       }
 
-      @include xl {
-        right: 5.5%;
-        top: 170px;
+      @include lg {
         width: 50px;
+      }
+
+      @include xl {
+        right: 5%;
+        top: 155px;
+        width: 60px;
       }
     }
 
@@ -621,26 +660,29 @@ $logo-opacity: 0.8;
         width: 26px;
         z-index: 2;
       }
+
+      @include xl {
+        left: 65px;
+        top: 125px;
+        width: 35px;
+      }
     }
 
     &.meteor {
-      @include sm-only {
+      @include md-only {
         display: none;
       }
 
-      @include md {
-        left: 200px;
+      @include lg {
+        left: 24%;
         opacity: $logo-opacity;
         top: 5px;
         width: 40px;
       }
 
-      @include lg {
-        left: 19%;
-      }
-
       @include xl {
-        left: 20%;
+        left: 19%;
+        top: 0;
         width: 50px;
       }
     }
@@ -662,7 +704,7 @@ $logo-opacity: 0.8;
       }
 
       @include xl {
-        left: 17.5%;
+        left: 19%;
         width: 55px;
       }
     }
@@ -693,6 +735,7 @@ $logo-opacity: 0.8;
 
       @include lg {
         right: 13%;
+        top: 110px;
         width: 110px;
       }
 
@@ -738,12 +781,11 @@ $logo-opacity: 0.8;
 
       @include lg {
         left: 12%;
-        transform: rotate(0deg);
       }
 
       @include xl {
         left: 10%;
-        width: 130px;
+        width: 150px;
       }
     }
 
@@ -773,8 +815,9 @@ $logo-opacity: 0.8;
       }
 
       @include xl {
-        left: 8%;
-        top: 145px;
+        left: 15%;
+        top: 152px;
+        transform: rotate(0deg);
       }
     }
 
@@ -842,8 +885,12 @@ $logo-opacity: 0.8;
         width: 45px;
       }
 
+      @include lg {
+        right: 7%;
+      }
+
       @include xl {
-        right: 10%;
+        right: 11%;
         top: 160px;
         width: 50px;
       }
@@ -856,14 +903,14 @@ $logo-opacity: 0.8;
 
       @include lg {
         opacity: $logo-opacity;
-        right: 13%;
-        top: 160px;
+        right: 12.5%;
+        top: 155px;
         width: 35px;
       }
 
       @include xl {
-        right: 16%;
-        top: 170px;
+        right: 16.5%;
+        top: 165px;
       }
     }
 
@@ -887,6 +934,12 @@ $logo-opacity: 0.8;
         top: 90px;
         width: 50px;
       }
+
+      @include xl {
+        left: 6px;
+        top: 85px;
+        width: 70px;
+      }
     }
 
     &.rest {
@@ -909,7 +962,7 @@ $logo-opacity: 0.8;
       @include lg {
         opacity: $logo-opacity;
         right: 18%;
-        top: 160px;
+        top: 155px;
         width: 35px;
       }
 
@@ -938,7 +991,7 @@ $logo-opacity: 0.8;
 
       @include xl {
         right: 2%;
-        width: 100px;
+        width: 90px;
       }
     }
 
@@ -949,7 +1002,7 @@ $logo-opacity: 0.8;
 
       @include lg {
         opacity: $logo-opacity;
-        right: 25%;
+        right: 24%;
         top: 70px;
         width: 40px;
       }
@@ -987,6 +1040,11 @@ $logo-opacity: 0.8;
       @include lg {
         right: 6%;
       }
+
+      @include xl {
+        right: 4.2%;
+        width: 40px;
+      }
     }
 
     &.swift {
@@ -1002,7 +1060,8 @@ $logo-opacity: 0.8;
       }
 
       @include xl {
-        left: 21%;
+        left: 18.5%;
+        top: 180px;
       }
     }
 
@@ -1019,7 +1078,12 @@ $logo-opacity: 0.8;
       }
 
       @include lg {
-        right: 18%;
+        right: 18.5%;
+      }
+
+      @include xl {
+        right: 17.5%;
+        width: 40px;
       }
     }
 
@@ -1044,6 +1108,8 @@ $logo-opacity: 0.8;
 
       @include lg {
         right: 13%;
+        top: 10px;
+        width: 50px;
       }
     }
 
@@ -1052,9 +1118,9 @@ $logo-opacity: 0.8;
 
       @include xl {
         display: block;
-        left: 15%;
+        left: 17.5%;
         opacity: $logo-opacity;
-        top: 200px;
+        top: 220px;
         width: 35px;
       }
     }
