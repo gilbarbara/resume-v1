@@ -143,6 +143,11 @@
       + p {
         margin-top: $grid-gutter-width;
       }
+
+      a {
+        color: $text-color;
+        text-decoration: underline;
+      }
     }
   }
 }
