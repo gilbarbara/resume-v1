@@ -215,6 +215,8 @@ gulp.task('serve', ['assets'], function () {
 gulp.task('gh-pages', function () {
     return gulp.src('dist/**/*')
         .pipe($.ghPages({
+        	remoteUrl: 'https://github.com/gilbarbara/gilbarbara.github.io',
+        	branch: 'master',
             force: true
         }));
 });
