@@ -38,7 +38,7 @@
  * @param {Object} data - xhr
  */
 
-@mixin jagged($color: #000, $size: 16, $location: bottom, $type: border, $side: outside, $animate: false) {
+@mixin jagged($color: #000, $size: 32, $location: bottom, $type: fill, $side: outside, $animate: false) {
   @if str-index(#{$color}, '#') {
     $color: str-slice(#{$color}, 2);
   }
@@ -80,6 +80,7 @@
   position: relative;
 
   &:#{$pseudo} {
+    background-repeat: if($location == bottom or $location == top, repeat-x, repeat-y);
     content: '';
     position: absolute;
     z-index: 10;

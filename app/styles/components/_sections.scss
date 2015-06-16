@@ -1,0 +1,172 @@
+
+.section {
+  padding: 20px 0 $grid-gutter-width;
+
+  @include sm {
+    padding-bottom: $grid-gutter-width * 1.5;
+  }
+
+  @include lg {
+    padding-bottom: $grid-gutter-width * 2;
+  }
+
+  &:nth-of-type(odd):not(:last-of-type) {
+    @include jagged($section-color-odd);
+    background-color: $section-color-odd;
+  }
+
+  &:nth-of-type(even):not(:last-of-type) {
+    @include jagged($section-color-even);
+    background-color: $section-color-even;
+  }
+
+  &__title {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2.6rem;
+    font-weight: 800;
+    margin: $grid-gutter-width 0;
+
+    @include md {
+      font-size: 3.2rem;
+      margin: ($grid-gutter-width * 2) 0 $grid-gutter-width;
+    }
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.summary {
+  .section__list {
+    > li {
+      font-size: 1.6rem;
+
+      &:before {
+        content: '—';
+        padding-right: 5px;
+      }
+
+      + li {
+        padding-top: 10px;
+      }
+    }
+  }
+}
+
+.skills {
+  .section__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    > li {
+      margin-bottom: $grid-gutter-width / 2;
+      width: 100%;
+
+      @include lg {
+        width: 50%;
+      }
+
+      &:last-of-type {
+        margin-bottom: 0;
+        flex-grow: 1;
+      }
+
+      h4 {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.projects {
+  .section__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    > li {
+      display: inline-block;
+      margin-bottom: $grid-gutter-width / 2;
+      width: 100%;
+
+      @include md {
+        text-align: center;
+        width: 50%;
+      }
+
+      @include lg {
+        width: 20%;
+      }
+
+      .project {
+        display: block;
+        font-size: 1.6rem;
+        text-align: left;
+        text-decoration: none;
+
+        @include md {
+          font-size: 1.8rem;
+          text-align: center;
+        }
+
+        &__image {
+          display: inline-block;
+          height: 0;
+          margin-right: 5px;
+          padding-bottom: 30%;
+          vertical-align: middle;
+          width: 30%;
+
+          @include md {
+            display: block;
+            margin: 0 auto 5px;
+            padding-bottom: 50%;
+            width: 50%;
+          }
+
+          img {
+            width: 100%;
+          }
+        }
+
+        &__name {
+          display: inline-block;
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+
+  &__more {
+    font-size: 1.8rem;
+  }
+}
+
+.experience {
+
+  .section__list {
+
+    > li {
+      .title {
+        display: block;
+        font-size: 1.6rem;
+      }
+
+      span {
+        color: #666;
+        display: block;
+        margin-top: 3rem;
+      }
+
+      em {
+        color: #555;
+        display: block;
+        margin-top: 10px;
+      }
+    }
+  }
+}
