@@ -1,4 +1,4 @@
-$logo-opacity: 0.8;
+$logo-opacity: 0.7;
 
 .logos {
   left: 0;
@@ -824,7 +824,7 @@ $logo-opacity: 0.8;
     &.octocat {
       left: 40vw;
       opacity: $logo-opacity;
-      top: 0;
+      top: 1vh;
       width: 20vw;
       z-index: 1;
 

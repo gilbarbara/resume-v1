@@ -1,8 +1,8 @@
 .main-header {
-  @include jagged($section-color-even);
-  background-image: linear-gradient($section-color-odd, $section-color-even);
+  @include jagged($section-color);
+  background-image: linear-gradient($section-color-odd, $section-color);
   background-repeat: no-repeat;
-  margin: $grid-gutter-width auto 0;
+  margin: ($grid-gutter-width * 1.3) auto 0;
   padding-bottom: 20px;
   position: relative;
   text-align: center;
@@ -24,11 +24,8 @@
   }
 
   @include lg {
+    height: 84vh;
     margin-top: $grid-gutter-width * 3;
-  }
-
-  @include xl {
-    margin-top: $grid-gutter-width * 5;
   }
 
 
@@ -134,32 +131,32 @@
 
     @include lg {
       max-width: 900px;
-      padding: ($grid-gutter-width * 3) 0;
-    }
-
-    @include xl {
       padding: ($grid-gutter-width * 4) 0;
     }
 
+    @include xl {
+      padding: ($grid-gutter-width * 5) 0;
+    }
+
     p {
-      font-size: 2.2rem;
+      font-size: 2.4rem;
       font-weight: 700;
       margin: 0;
 
       @include sm {
-        font-size: 2.4rem;
+        font-size: 2.7rem;
       }
 
       @include md {
-        font-size: 2.6rem;
-      }
-
-      @include lg {
         font-size: 3rem;
       }
 
+      @include lg {
+        font-size: 4.6rem;
+      }
+
       @include xl {
-        font-size: 3.6rem;
+        font-size: 4.6rem;
       }
 
       + p {
