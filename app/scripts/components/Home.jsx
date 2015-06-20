@@ -1,9 +1,17 @@
 var React  = require('react'),
-    Loader = require('./Loader');
+    Loader = require('./Loader'),
+    texts  = require('../../texts.json');
 
 var Home = React.createClass({
+    getInitialState: function () {
+        return {
+            lang: 'en'
+        };
+    },
 
     render: function () {
+        var state = this.state;
+
         return (
             <div className="wrapper">
                 <Loader/>
@@ -13,9 +21,9 @@ var Home = React.createClass({
                     <h2>Front-End Developer - UI/UX</h2><br/>
 
                     <div className="menu clearfix">
-                        <a href="mailto:gilbarbara@gmail.com" target="_blank">Contato</a>
+                        <a href="mailto:gilbarbara@gmail.com" target="_blank">{texts.header.contact[state.lang]}</a>
 
-                        <a href="http://kollectiv.org" className="text-right" target="_blank">Portifólio</a>
+                        <a href="http://kollectiv.org" className="text-right" target="_blank">{texts.header.portfolio[state.lang]}</a>
                     </div>
 
                     <div className="logos">
@@ -70,7 +78,7 @@ var Home = React.createClass({
                         <img src="media/logos/yeoman.svg" className="yeoman" title="yeoman"/>
                     </div>
                     <div className="bio">
-                        <p>Sou um programador front-end apaixonado por criar produtos bem finalizados com foco em interface e usabilidade.</p>
+                        <p>{texts.headline[state.lang]}</p>
                     </div>
 
                 </header>
@@ -78,22 +86,18 @@ var Home = React.createClass({
                 <main>
                     <div className="section summary">
                         <div className="container">
-                            <h3 className="section__title">Resumo</h3>
+                            <h3 className="section__title">{texts.summary.title[state.lang]}</h3>
                             <ul className="section__list">
-                                <li>Amplo conhecimento em web design, desenvolvimento web e design gráfico.</li>
-                                <li>Especializando-se em padrões web: HTML5, CSS3, SVG, Mobile, Responsivo.</li>
-                                <li>Sólidas habilidades organizacionais, gerenciamento de projetos.</li>
-                                <li>Confiável, motivado, trabalhador e atento aos detalhes.</li>
-                                <li>Antenado com novas aplicações e tecnologias.</li>
-                                <li>Vinte anos de experiência em computação (Windows, Mac OS, Unix, Linux, BSD) e desenvolvimento (C, Perl, Python, Applescript, Javascript, Objective C)</li>
-                                <li>Inglês Fluente (Leitura, Escrita e Conversação)</li>
+                                {texts.summary.items[state.lang].map((item, i) => {
+                                    return <li key={i}>{item}</li>;
+                                })}
                             </ul>
                         </div>
                     </div>
 
                     <div className="section skills">
                         <div className="container">
-                            <h3 className="section__title">Tecnologias</h3>
+                            <h3 className="section__title">{texts.skills.title[state.lang]}</h3>
                             <ul className="section__list">
                                 <li>
                                     <h4>HTML/CSS</h4>
@@ -128,7 +132,7 @@ var Home = React.createClass({
 
                     <div className="section projects">
                         <div className="container">
-                            <h3 className="section__title">Projetos</h3>
+                            <h3 className="section__title">{texts.projects.title[state.lang]}</h3>
                             <ul className="section__list">
                                 <li><a href="http://kollectiv.org/" target="_blank">
                                     <div className="project__image">
@@ -169,14 +173,14 @@ var Home = React.createClass({
                                 </a>
                                 </li>
                             </ul>
-                            <div className="projects__more">veja mais<br/>
+                            <div className="projects__more">{texts.projects.more[state.lang]}<br/>
                                 <a href="http://github.com/gilbarbara" target="_blank">Github</a> / <a
                                     href="http://codepen.io/gilbarbara/" target="_blank">Codepen</a></div>
                         </div>
                     </div>
                     <div className="section experience">
                         <div className="container">
-                            <h3 className="section__title">Experiência</h3>
+                            <h3 className="section__title">{texts.experience.title[state.lang]}</h3>
                             <ul className="section__list">
                                 <li>
                                     <span>– Desde Dez/2014</span>
@@ -215,7 +219,7 @@ var Home = React.createClass({
 
                     <div className="section">
                         <div className="container">
-                            <h3 className="section__title">Informações adicionais</h3>
+                            <h3 className="section__title">{texts.extra.title[state.lang]}</h3>
 
                             <p>Um dos DJs pioneiros do Brasil na ativa desde 1987 – <a
                                 href="http://rraurl.com/gilbarbara"

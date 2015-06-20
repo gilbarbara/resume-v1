@@ -5,7 +5,7 @@
       "pt": "Contato"
     },
     "portfolio": {
-      "en": "Portifolio",
+      "en": "Portfolio",
       "pt": "Portifólio"
     }
   },
@@ -41,8 +41,8 @@
   },
   "skills": {
     "title": {
-      "en": "Tecnologias",
-      "pt": "Skills"
+      "en": "Skills",
+      "pt": "Tecnologias"
     }
   },
   "projects": {
@@ -129,7 +129,7 @@
   },
   "extra": {
     "title": {
-      "en": "Informações adicionais",
+      "en": "Additional Information",
       "pt": "Informações adicionais"
     }
   }

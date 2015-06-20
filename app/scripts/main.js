@@ -1,5 +1,4 @@
 var React = require('react'),
-    $     = require('jquery'),
     Home  = require('./components/Home');
 
 var drop = event => {
