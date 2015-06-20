@@ -112,30 +112,28 @@
 
   .bio {
     margin: 0 auto;
-    padding: ($grid-gutter-width) ($grid-gutter-width / 2);
+    padding: 15vh ($grid-gutter-width / 2);
 
     @include xs {
-      padding-bottom: $grid-gutter-width;
-      padding-top: $grid-gutter-width * 2;
+      padding: 12vh $grid-gutter-width;
     }
 
     @include sm {
-      padding-left: $grid-gutter-width;
-      padding-right: $grid-gutter-width;
+
     }
 
     @include md {
       max-width: 680px;
-      padding: ($grid-gutter-width * 3) ($grid-gutter-width / 2);
+      padding: 9vh ($grid-gutter-width / 2);
     }
 
     @include lg {
       max-width: 900px;
-      padding: ($grid-gutter-width * 4) 0;
+      padding: 12vh 0;
     }
 
     @include xl {
-      padding: ($grid-gutter-width * 5) 0;
+      padding: 15vh 0;
     }
 
     p {
@@ -143,8 +141,8 @@
       font-weight: 700;
       margin: 0;
 
-      @include sm {
-        font-size: 2.7rem;
+      @include xs {
+        font-size: 2.8rem;
       }
 
       @include md {

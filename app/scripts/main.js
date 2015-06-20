@@ -1,4 +1,6 @@
-var $ = require('jquery');
+var React = require('react'),
+    $     = require('jquery'),
+    Home  = require('./components/Home');
 
 var drop = event => {
     var el = event.target;
@@ -30,6 +32,8 @@ var scrolled = () => {
 };
 
 document.addEventListener('DOMContentLoaded', function () {
+    React.render(<Home/>, document.getElementById('react'));
+
     var imgs = document.querySelectorAll('.logos img');
     for (var i = 0; i < imgs.length; ++i) {
         imgs[i].addEventListener('dragend', drop, false);

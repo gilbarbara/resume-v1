@@ -8,5 +8,129 @@
       "en": "Portifolio",
       "pt": "Portifólio"
     }
+  },
+  "headline": {
+    "en": "I am a front-end developer passionate about creating well-finished products with a focus on interface and usability.",
+    "pt": "Sou um programador front-end apaixonado por criar produtos bem finalizados com foco em interface e usabilidade."
+  },
+  "summary": {
+    "title": {
+      "en": "Summary",
+      "pt": "Resumo"
+    },
+    "items": {
+      "en": [
+        "Extensive knowledge in web design, web development and graphic design.",
+        "Specializing in web standards: HTML5, CSS3, SVG, Mobile, Responsive.",
+        "Strong organizational skills, project management.",
+        "Reliable, motivated, hardworking and attentive to detai",
+        "Antenado com novas aplicações e tecnologias.",
+        "Twenty years of experience with computer (Mac OS, Windows, Unix, Linux, BSD) and development (C, Perl, Python, Applescript, Javascript, Objective C)",
+        "Fluent English (Reading, Writing and Speaking)"
+      ],
+      "pt": [
+        "Amplo conhecimento em web design, desenvolvimento web e design gráfico.",
+        "Especializando-se em padrões web: HTML5, CSS3, SVG, Mobile, Responsivo.",
+        "Sólidas habilidades organizacionais, gerenciamento de projetos.",
+        "Confiável, motivado, trabalhador e atento aos detalhes.",
+        "Antenado com novas aplicações e tecnologias.",
+        "Vinte anos de experiência em computação (Mac OS, Windows, Unix, Linux, BSD) e desenvolvimento (C, Perl, Python, Applescript, Javascript, Objective C)",
+        "Inglês Fluente (Leitura, Escrita e Conversação)"
+      ]
+    }
+  },
+  "skills": {
+    "title": {
+      "en": "Tecnologias",
+      "pt": "Skills"
+    }
+  },
+  "projects": {
+    "title": {
+      "en": "Projects",
+      "pt": "Projetos"
+    },
+    "more": {
+      "en": "see more",
+      "pt": "veja mais"
+    }
+  },
+  "experience": {
+    "title": {
+      "en": "Experience",
+      "pt": "Experiência"
+    },
+    "leaarned": {
+      "en": "Skills",
+      "pt": "Ferramentas"
+    },
+    "items": {
+      "en": [
+        {
+          "timeframe": "Desde Dez/2014",
+          "title": "Vérios Investimentos",
+          "link": "https://verios.com.br/",
+          "description": "Desenvolvimento de sistema de investimento automatizado (robo advisor)",
+          "experience": "Node.js (Hapi), Javascript (React/Flux / Browserify), CSS3 (Sass / Less), MongoDB, Agile"
+        },
+        {
+          "timeframe": "Desde 2003",
+          "title": "Kollectiv",
+          "link": "http://kollectiv.org/",
+          "description": "Programador freelancer",
+          "experience": "PHP (Wordpress/Laravel), Node.js (Express / Socket.io), Javascript (Backbone / Angular / D3), HTML5, SVG, CSS3 (Sass/Less), MySQL, MongoDB, Git, AWS, DevTools."
+        },
+        {
+          "timeframe": "Entre 1997 e 2012",
+          "title": "rraurl.com",
+          "link": "http://rraurl.com/",
+          "description": "Sócio-Programador-Editor do primeiro site brasileiro sobre música e comportamento e com uma comunidade participativa.",
+          "experience": "PHP, Ruby on Rails, HTML, Javascript, CSS, MySQL. SEO, metricas, comunidade, usabilidade."
+        },
+        {
+          "timeframe": "Entre 1994 e 2010",
+          "title": "",
+          "link": "",
+          "description": "Administrador de sistemas, programação e consultoria em produtoras de áudio e vídeo: Trattoria Filmes, Vetor Zero, Lobo Filmes, Dr. DD Música, O2 Filmes, Conspiração Filmes entre outras.",
+          "experience": "Mac, Linux, Unix, Windows. Avid, Pro Tools, Flame, Inferno, Logic, Premiere, Final Cut Pro, After Effects. Desenvolvimento de plug-ins e bibliotecas de sistema."
+        }
+      ],
+      "pt": [
+        {
+          "timeframe": "Desde Dez/2014",
+          "title": "Vérios Investimentos",
+          "link": "https://verios.com.br/",
+          "description": "Desenvolvimento de sistema de investimento automatizado (robo advisor)",
+          "experience": "Node.js (Hapi), Javascript (React/Flux / Browserify), CSS3 (Sass / Less), MongoDB, Agile"
+        },
+        {
+          "timeframe": "Desde 2003",
+          "title": "Kollectiv",
+          "link": "http://kollectiv.org/",
+          "description": "Programador freelancer",
+          "experience": "PHP (Wordpress/Laravel), Node.js (Express / Socket.io), Javascript (Backbone / Angular / D3), HTML5, SVG, CSS3 (Sass/Less), MySQL, MongoDB, Git, AWS, DevTools."
+        },
+        {
+          "timeframe": "Entre 1997 e 2012",
+          "title": "rraurl.com",
+          "link": "http://rraurl.com/",
+          "description": "Sócio-Programador-Editor do primeiro site brasileiro sobre música e comportamento e com uma comunidade participativa.",
+          "experience": "PHP, Ruby on Rails, HTML, Javascript, CSS, MySQL. SEO, metricas, comunidade, usabilidade."
+        },
+        {
+          "timeframe": "Entre 1994 e 2010",
+          "title": "",
+          "link": "",
+          "description": "Administrador de sistemas, programação e consultoria em produtoras de áudio e vídeo: Trattoria Filmes, Vetor Zero, Lobo Filmes, Dr. DD Música, O2 Filmes, Conspiração Filmes entre outras.",
+          "experience": "Mac, Linux, Unix, Windows. Avid, Pro Tools, Flame, Inferno, Logic, Premiere, Final Cut Pro, After Effects. Desenvolvimento de plug-ins e bibliotecas de sistema."
+        }
+      ]
+    }
+  },
+  "extra": {
+    "title": {
+      "en": "Informações adicionais",
+      "pt": "Informações adicionais"
+    }
   }
 }

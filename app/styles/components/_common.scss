@@ -11,7 +11,6 @@ body {
   padding: 0 0 $grid-gutter-width;
 }
 
-
 .container {
   max-width: 960px;
   width: auto;
@@ -27,6 +26,11 @@ body {
   @include lg {
     margin: 0 auto;
   }
+}
+
+.wrapper {
+  min-height: 200px;
+  position: relative;
 }
 
 main {
