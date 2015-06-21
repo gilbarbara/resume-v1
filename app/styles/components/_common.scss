@@ -28,11 +28,6 @@ body {
   }
 }
 
-.wrapper {
-  min-height: 200px;
-  position: relative;
-}
-
 main {
   @include lg {
     position: relative;

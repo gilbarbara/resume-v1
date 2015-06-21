@@ -1,5 +1,5 @@
 var React = require('react'),
-    Home  = require('./components/Home');
+    App  = require('./App');
 
 var drop = event => {
     var el = event.target;
@@ -31,7 +31,7 @@ var scrolled = () => {
 };
 
 document.addEventListener('DOMContentLoaded', function () {
-    React.render(<Home/>, document.getElementById('react'));
+    React.render(<App/>, document.getElementById('react'));
 
     var imgs = document.querySelectorAll('.logos img');
     for (var i = 0; i < imgs.length; ++i) {

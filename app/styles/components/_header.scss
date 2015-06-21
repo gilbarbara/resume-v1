@@ -28,11 +28,24 @@
     margin-top: $grid-gutter-width * 3;
   }
 
+  .wrapper {
+    display: inline-block;
+    position: relative;
+    width: 210px;
+    z-index: 15;
+
+    @include md {
+      width: 270px;
+    }
+
+    @include lg {
+      width: 340px;
+    }
+  }
 
   h1 {
     background-color: #000;
     color: #fff;
-    display: inline-block;
     font-family: Georgia, serif;
     font-size: 3rem;
     font-style: italic;
@@ -41,7 +54,6 @@
     margin: 0 0 1rem;
     padding: 10px;
     position: relative;
-    z-index: 10;
 
     @include md {
       font-size: 4rem;
@@ -54,10 +66,10 @@
   }
 
   h2 {
-    display: inline-block;
     font-size: 1.8rem;
     margin: 0;
     position: relative;
+    z-index: 5;
 
     @include md {
       font-size: 2.45rem;
@@ -68,25 +80,15 @@
     }
   }
 
-  > .menu {
-    display: inline-block;
+  .menu {
     margin-top: 10px;
+    pointer-events: none;
     position: relative;
-    width: 200px;
-    z-index: 10;
-
-    @include md {
-      width: 270px;
-    }
-
-    @include lg {
-      width: 340px;
-    }
 
     a {
       color: #000;
-
       float: left;
+      pointer-events: all;
       position: relative;
       text-decoration: none;
 
@@ -107,6 +109,25 @@
 
     a:nth-of-type(2) {
       float: right;
+    }
+  }
+
+  .language {
+    margin-top: -20px;
+
+    a {
+      background-color: #fff;
+      border: 1px solid #aaa;
+      color: #aaa;
+      font-size: 1.2rem;
+      line-height: 1;
+      padding: 1px 4px;
+      text-decoration: none;
+
+      &.active {
+        background-color: #aaa;
+        color: #fff;
+      }
     }
   }
 

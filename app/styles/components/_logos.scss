@@ -3,6 +3,7 @@ $logo-opacity: 0.7;
 .logos {
   left: 0;
   min-height: 160px;
+  pointer-events: none;
   position: fixed;
   right: 0;
   top: 0;
@@ -37,6 +38,7 @@ $logo-opacity: 0.7;
 
   img {
     opacity: 0;
+    pointer-events: all;
     position: absolute;
     transition: all 0.3s cubic-bezier(0.55, 0.085, 0.385, 1.65);
     z-index: 10;
