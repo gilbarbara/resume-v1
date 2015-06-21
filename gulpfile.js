@@ -5,6 +5,7 @@ var gulp        = require('gulp'),
     buffer      = require('vinyl-buffer'),
     browserSync = require('browser-sync'),
     del         = require('del'),
+    historyApiFallback    = require('connect-history-api-fallback'),
     merge       = require('merge-stream'),
     path        = require('path'),
     runSequence = require('run-sequence'),
@@ -16,7 +17,8 @@ var isProduction = function () {
     },
     target       = function () {
         return (isProduction() ? 'dist' : '.tmp');
-    };
+    },
+    middleware   = historyApiFallback({});
 
 function watchifyTask (options) {
     var bundler, rebundle, iteration = 0;
@@ -148,19 +150,18 @@ gulp.task('bundle', function () {
         .pipe($.if('*.css', $.cssmin()))
         .pipe(assets.restore())
         .pipe($.useref())
-        .pipe(gulp.dest(target()))
+        .pipe(gulp.dest('dist'))
         .pipe($.size({
             title: 'HTML'
         }));
 
     extras = gulp.src([
         'app/*.*',
-        '!app/*.html',
-        'node_modules/apache-server-configs/dist/.htaccess'
+        '!app/*.html'
     ], {
         dot: true
     })
-        .pipe(gulp.dest(target()))
+        .pipe(gulp.dest('dist'))
         .pipe($.size({
             title: 'Extras'
         }));
@@ -208,6 +209,7 @@ gulp.task('serve', ['assets'], function () {
         files: ['app/*.html', '.tmp/styles/**/*.css', '.tmp/scripts/*.js', 'app/media/**/*'],
         server: {
             baseDir: [target(), 'app'],
+            middleware: [middleware],
             routes: {
                 '/bower_components': './bower_components'
             }

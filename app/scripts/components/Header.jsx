@@ -17,13 +17,14 @@ var Header = React.createClass({
                     <h1>Gil Barbara</h1>
                     <h2>Front-End Developer - UI/UX</h2>
 
-                    <div className="menu clearfix">
-                        <a href="mailto:gilbarbara@gmail.com"
-                           target="_blank">{props.texts.header.contact[props.lang]}</a>
-
-                        <a href="http://kollectiv.org" className="text-right"
-                           target="_blank">{props.texts.header.portfolio[props.lang]}</a>
-                    </div>
+                    <ul className="menu">
+                        {props.texts.header.menu[props.lang].map((item, i) => {
+                            console.log(item);
+                            return <li key={i}>
+                                <a href={item.link || '#'} data-section={item.section}>{item.title}</a>
+                            </li>;
+                        })}
+                    </ul>
                     <div className="language">
                         <a href="#" data-lang="pt" onClick={props.setLang} className={props.lang === 'pt' ? 'active' : ''}>PT</a>
                         <a href="#" data-lang="en" onClick={props.setLang} className={props.lang === 'en' ? 'active' : ''}>EN</a>

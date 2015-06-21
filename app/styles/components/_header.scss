@@ -35,11 +35,11 @@
     z-index: 15;
 
     @include md {
-      width: 270px;
+      width: 275px;
     }
 
     @include lg {
-      width: 340px;
+      width: 345px;
     }
   }
 
@@ -81,13 +81,20 @@
   }
 
   .menu {
-    margin-top: 10px;
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    margin: 10px 0 0;
+    padding: 0;
     pointer-events: none;
     position: relative;
 
+    >li {
+      text-align: center;
+    }
+
     a {
       color: #000;
-      float: left;
       pointer-events: all;
       position: relative;
       text-decoration: none;
@@ -102,18 +109,18 @@
         content: '';
         display: block;
         height: 2px;
+        left: 0;
         position: absolute;
         width: 100%;
       }
     }
-
-    a:nth-of-type(2) {
-      float: right;
-    }
   }
 
   .language {
-    margin-top: -20px;
+    display: inline-block;
+    font: 0;
+    line-height: 0;
+    text-align: right;
 
     a {
       background-color: #fff;
@@ -139,13 +146,8 @@
       padding: 12vh $grid-gutter-width;
     }
 
-    @include sm {
-
-    }
-
     @include md {
       max-width: 680px;
-      padding: 9vh ($grid-gutter-width / 2);
     }
 
     @include lg {

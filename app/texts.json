@@ -1,5 +1,43 @@
 {
     "header": {
+        "menu": {
+            "en": [
+                {
+                    "title": "Portfolio",
+                    "link": "http://kollectiv.org/"
+                },
+                {
+                    "title": "Skills",
+                    "section": "skills"
+                },
+                {
+                    "title": "Projects",
+                    "section": "projects"
+                },
+                {
+                    "title": "Contact",
+                    "link": "mailto:gilbarbara@gmail.com"
+                }
+            ],
+            "pt": [
+                {
+                    "title": "Portfólio",
+                    "link": "http://kollectiv.org/"
+                },
+                {
+                    "title": "Habilidades",
+                    "section": "skills"
+                },
+                {
+                    "title": "Projetos",
+                    "section": "projects"
+                },
+                {
+                    "title": "Contato",
+                    "link": "mailto:gilbarbara@gmail.com"
+                }
+            ]
+        },
         "contact": {
             "en": "Contact",
             "pt": "Contato"
@@ -134,7 +172,7 @@
         },
         "text": {
             "en": "One of the first DJs in Brazil playing since 1987",
-            "pt": "Um dos DJs pioneiros do Brasil na ativa desde 1987"
+            "pt": "Um dos DJ pioneiros do Brasil na ativa desde 1987"
         }
     }
 }

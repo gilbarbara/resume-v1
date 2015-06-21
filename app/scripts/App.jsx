@@ -6,14 +6,16 @@ var React = require('react'),
 var Home = React.createClass({
     getInitialState () {
         return {
-            lang: 'pt',
+            lang: location.pathname.indexOf('en') > -1 ? 'en' : 'pt',
             texts: texts
         };
     },
 
     _setLang (e) {
         e.preventDefault();
+        var lang = e.currentTarget.dataset.lang;
 
+        window.history.pushState('', '', (lang === 'pt' ? '/' : 'en'));
         this.setState({
             lang: e.currentTarget.dataset.lang
         });
