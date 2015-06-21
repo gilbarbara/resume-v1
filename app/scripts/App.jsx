@@ -12,12 +12,11 @@ var Home = React.createClass({
     },
 
     _setLang (e) {
-        e.preventDefault();
-        var lang = e.currentTarget.dataset.lang;
+        var lang = e.currentTarget.checked ? 'en' : 'pt';
 
         window.history.pushState('', '', (lang === 'pt' ? '/' : 'en'));
         this.setState({
-            lang: e.currentTarget.dataset.lang
+            lang: lang
         });
     },
 
@@ -82,13 +81,6 @@ var Home = React.createClass({
                         <div className="container">
                             <h3 className="section__title">{state.texts.projects.title[state.lang]}</h3>
                             <ul className="section__list">
-                                <li><a href="http://kollectiv.org/" target="_blank">
-                                    <div className="project__image">
-                                        <img src="media/projects/kollectiv.svg" className="project" title="Kollectiv"/>
-                                    </div>
-                                    <div className="project__name">Kollectiv</div>
-                                </a>
-                                </li>
                                 <li><a href="http://favstagram.me/" className="project" target="_blank">
                                     <div className="project__image">
                                         <img src="media/projects/favstagram.svg" className="project"
@@ -102,6 +94,13 @@ var Home = React.createClass({
                                         <img src="media/projects/colormeup.svg" title="Colormeup"/>
                                     </div>
                                     <div className="project__name">Colormeup</div>
+                                </a>
+                                </li>
+                                <li><a href="http://kollectiv.org/" target="_blank">
+                                    <div className="project__image">
+                                        <img src="media/projects/kollectiv.svg" className="project" title="Kollectiv"/>
+                                    </div>
+                                    <div className="project__name">Kollectiv</div>
                                 </a>
                                 </li>
                                 <li><a href="http://apps.facebook.com/abovetheskyline/" className="project"

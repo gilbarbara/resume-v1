@@ -7,12 +7,8 @@
                     "link": "http://kollectiv.org/"
                 },
                 {
-                    "title": "Skills",
-                    "section": "skills"
-                },
-                {
-                    "title": "Projects",
-                    "section": "projects"
+                    "title": "Github",
+                    "link": "https://github.com/gilbarbara"
                 },
                 {
                     "title": "Contact",
@@ -21,16 +17,12 @@
             ],
             "pt": [
                 {
-                    "title": "Portfólio",
+                    "title": "Portifólio",
                     "link": "http://kollectiv.org/"
                 },
                 {
-                    "title": "Habilidades",
-                    "section": "skills"
-                },
-                {
-                    "title": "Projetos",
-                    "section": "projects"
+                    "title": "Github",
+                    "link": "https://github.com/gilbarbara"
                 },
                 {
                     "title": "Contato",
@@ -58,21 +50,21 @@
         },
         "items": {
             "en": [
-                "Broad knowledge in web design, web development and graphic design.",
-                "Specializing in W3C web standards: HTML5, CSS3, SVG, Mobile, Responsive.",
+                "Extensive knowledge in web development, web design and graphic design.",
+                "Expert in W3C web standards: HTML5, CSS3, SVG, Mobile, Responsive.",
                 "Strong organizational skills and project management.",
+                "Twenty years of experience with computers (Mac OS, Windows, Unix, Linux) and development (C, Perl, PHP, Python, Ruby, Objective-C)",
                 "Reliable, motivated, hardworking and attentive to details",
                 "Adaptive to new applications and technologies.",
-                "Twenty years of experience with computers (Mac OS, Windows, Unix, Linux, BSD) and development (C, Perl, Python, Applescript, Javascript, Objective C)",
                 "Fluent English (Reading, Writing and Speaking)"
             ],
             "pt": [
-                "Amplo conhecimento em web design, desenvolvimento web e design gráfico.",
-                "Especializado-se em padrões web: HTML5, CSS3, SVG, Mobile, Responsivo.",
+                "Amplo conhecimento em desenvolvimento web, web design e design gráfico.",
+                "Especialista em padrões web W3C: HTML5, CSS3, SVG, Mobile, Responsivo.",
                 "Sólidas habilidades organizacionais e gerenciamento de projetos.",
+                "Vinte anos de experiência em computação (Mac OS, Windows, Unix, Linux, BSD) e desenvolvimento (C, Perl, Python, Applescript, Javascript, Objective C)",
                 "Confiável, motivado, trabalhador e atento aos detalhes.",
                 "Antenado com novas aplicações e tecnologias.",
-                "Vinte anos de experiência em computação (Mac OS, Windows, Unix, Linux, BSD) e desenvolvimento (C, Perl, Python, Applescript, Javascript, Objective C)",
                 "Inglês Fluente (Leitura, Escrita e Conversação)"
             ]
         }
