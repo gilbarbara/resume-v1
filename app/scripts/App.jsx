@@ -1,7 +1,7 @@
-var React  = require('react'),
+var React = require('react'),
     Header = require('./components/Header'),
     Loader = require('./components/Loader'),
-    texts  = require('../texts.json');
+    texts = require('../texts.json');
 
 var Home = React.createClass({
     getInitialState () {
@@ -45,18 +45,21 @@ var Home = React.createClass({
                                 <li>
                                     <h4>HTML/CSS</h4>
 
-                                    <p>HTML5 (JADE/HAML), CSS3, Sass, Less, Emmet, SVG, Responsive Web Design, Bootstrap, Micro-frameworks, SEO</p>
+                                    <p>HTML5 (JADE/HAML), CSS3, Sass, Less, Emmet, SVG, Responsive Web Design,
+                                        Bootstrap, Micro-frameworks, SEO</p>
                                 </li>
                                 <li>
                                     <h4>Javascript</h4>
 
-                                    <p>React/Flux, Backbone/Marionette, Meteor, D3, Handlebars, Jasmine/Mocha. ES 5/6/7</p>
+                                    <p>React/Flux, Backbone/Marionette, Meteor, D3, Handlebars, Jasmine/Mocha. ES
+                                        5/6/7</p>
                                 </li>
 
                                 <li>
                                     <h4>Back-end</h4>
 
-                                    <p>Node.js, PHP (Wordpress/Laravel), Ruby, Python, Objective-C, MySQL, MongoDB, Redis, Rest-API, Bash</p>
+                                    <p>Node.js, PHP (Wordpress/Laravel), Ruby, Python, Objective-C, MySQL, MongoDB,
+                                        Redis, Rest-API, Bash</p>
                                 </li>
                                 <li>
                                     <h4>Dev Tools</h4>
@@ -125,37 +128,16 @@ var Home = React.createClass({
                         <div className="container">
                             <h3 className="section__title">{state.texts.experience.title[state.lang]}</h3>
                             <ul className="section__list">
-                                <li>
-                                    <span>– Desde Dez/2014</span>
-                                    <a href="http://kollectiv.org" className="title"
-                                       target="_blank">Vérios Investimentos</a>
-                                    Desenvolvimento de sistema de investimento automatizado (robo advisor)
+                                {state.texts.experience.items[state.lang].map((item, i) => {
+                                    return (<li key={i}>
+                                        <span className="timeframe">{item.timeframe}</span>
+                                        {item.title ? <a href={item.link} className="title"
+                                                         target="_blank">{item.title}</a> : ''}
+                                        {item.description}
 
-                                    <em>Experiência: Node.js (Hapi), Javascript (React/Flux / Browserify), CSS3 (Sass / Less), MongoDB, Agile</em>
-                                </li>
-
-                                <li>
-                                    <span>– Desde 2003</span>
-                                    <a href="http://kollectiv.org" className="title" target="_blank">Kollectiv</a>
-                                    Programador freelancer
-
-                                    <em>Experiência: PHP (Wordpress/Laravel), Node.js (Express / Socket.io), Javascript (Backbone / Angular / D3), HTML5, SVG, CSS3 (Sass/Less), MySQL, MongoDB, Git, AWS, DevTools.</em>
-                                </li>
-
-                                <li>
-                                    <span>– Entre 1997 e 2012</span>
-                                    <a href="http://rraurl.com" className="title"
-                                       target="_blank">rraurl.com</a>
-                                    Sócio-Programador-Editor do primeiro site brasileiro sobre música e comportamento e com uma comunidade participativa.
-
-                                    <em>Experiência: PHP, Ruby on Rails, HTML, Javascript, CSS, MySQL. SEO, metricas, comunidade, usabilidade.</em>
-                                </li>
-
-                                <li>
-                                    <span>– Entre 1994 e 2010</span>
-                                    Administrador de sistemas, programação e consultoria em produtoras de áudio e vídeo: Trattoria Filmes, Vetor Zero, Lobo Filmes, Dr. DD Música, O2 Filmes, Conspiração Filmes entre outras.
-                                    <em>Experiência: Mac, Linux, Unix, Windows. Avid, Pro Tools, Flame, Inferno, Logic, Premiere, Final Cut Pro, After Effects. Desenvolvimento de plug-ins e bibliotecas de sistema.</em>
-                                </li>
+                                        <em>{state.texts.experience.learned[state.lang]}: {item.experience}</em>
+                                    </li>);
+                                })}
                             </ul>
                         </div>
                     </div>
@@ -164,7 +146,7 @@ var Home = React.createClass({
                         <div className="container">
                             <h3 className="section__title">{state.texts.extra.title[state.lang]}</h3>
 
-                            <p>Um dos DJs pioneiros do Brasil na ativa desde 1987 – <a
+                            <p>{state.texts.extra.text[state.lang]} – <a
                                 href="http://rraurl.com/gilbarbara"
                                 target="_blank">http://rraurl.com/gilbarbara</a>
                             </p>

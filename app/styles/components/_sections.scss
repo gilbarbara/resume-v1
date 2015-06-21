@@ -156,10 +156,16 @@
         font-size: 1.6rem;
       }
 
-      span {
+      .timeframe {
         color: #666;
         display: block;
         margin-top: 3rem;
+
+        &:before {
+          content: '—';
+          color: #666;
+          padding-right: 5px;
+        }
       }
 
       em {

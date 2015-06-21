@@ -192,6 +192,15 @@ gulp.task('clean', function(cb) {
 	del([target() + '/*'], cb);
 });
 
+gulp.task('gh-pages', function () {
+    return gulp.src('dist/**/*')
+        .pipe($.ghPages({
+            remoteUrl: 'https://github.com/gilbarbara/gilbarbara.github.io',
+            branch: 'master',
+            force: true
+        }));
+});
+
 gulp.task('serve', ['assets'], function () {
     browserSync({
         notify: true,
@@ -213,22 +222,13 @@ gulp.task('serve', ['assets'], function () {
     //gulp.watch('bower.json', ['bundle', browserSync.reload]);
 });
 
-gulp.task('gh-pages', function () {
-    return gulp.src('dist/**/*')
-        .pipe($.ghPages({
-        	remoteUrl: 'https://github.com/gilbarbara/gilbarbara.github.io',
-        	branch: 'master',
-            force: true
-        }));
+gulp.task('build', ['clean'], function (cb) {
+    process.env.NODE_ENV = 'production';
+    runSequence('lint', 'assets', ['media', 'bundle'], 'sizer', cb);
 });
 
 gulp.task('deploy', function (cb) {
     runSequence('build', ['gh-pages'], cb);
-});
-
-gulp.task('build', ['clean'], function (cb) {
-    process.env.NODE_ENV = 'production';
-    runSequence('lint', 'assets', ['media', 'bundle'], 'sizer', cb);
 });
 
 gulp.task('default', ['serve']);
