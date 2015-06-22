@@ -20,10 +20,10 @@ var Header = React.createClass({
 
                     <ul className="menu">
                         {props.texts.header.menu[props.lang].map((item, i) => {
-                            return <li key={i}>
+                            return (<li key={i}>
                                 <a href={item.link || '#'} target={item.link ? '_blank' : '_self'}
                                    data-section={item.section}>{item.title}</a>
-                            </li>;
+                           </li>);
                         })}
                         <li key="lang">
                             <div className="switchbox">

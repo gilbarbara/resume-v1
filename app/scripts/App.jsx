@@ -76,7 +76,6 @@ var Home = React.createClass({
                         </div>
                     </div>
 
-
                     <div className="section projects">
                         <div className="container">
                             <h3 className="section__title">{state.texts.projects.title[state.lang]}</h3>
