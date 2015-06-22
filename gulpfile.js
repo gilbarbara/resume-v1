@@ -136,14 +136,6 @@ gulp.task('bundle', function () {
         svg,
         assets = $.useref.assets();
 
-    vendor = gulp.src('bower_components/modernizr/modernizr.js')
-        .pipe($.uglify())
-        .pipe($.rename('modernizr.min.js'))
-        .pipe(gulp.dest('dist/scripts'))
-        .pipe($.size({
-            title: 'Vendor'
-        }));
-
     html = gulp.src('app/*.html')
         .pipe(assets)
         .pipe($.if('*.js', $.uglify()))
@@ -153,6 +145,14 @@ gulp.task('bundle', function () {
         .pipe(gulp.dest('dist'))
         .pipe($.size({
             title: 'HTML'
+        }));
+
+    vendor = gulp.src('bower_components/modernizr/modernizr.js')
+        .pipe($.uglify())
+        .pipe($.rename('modernizr.min.js'))
+        .pipe(gulp.dest('dist/scripts'))
+        .pipe($.size({
+            title: 'Vendor'
         }));
 
     extras = gulp.src([
