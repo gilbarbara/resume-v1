@@ -65,7 +65,6 @@ function watchifyTask (options) {
     return rebundle();
 }
 
-
 gulp.task('styles', function () {
     return gulp.src('app/styles/main.scss')
         .pipe($.changed('styles', {
@@ -104,9 +103,7 @@ gulp.task('lint', function () {
 });
 
 gulp.task('media', function () {
-    return gulp.src([
-        '**/*.{jpg,gif,png}'
-    	], { cwd: 'app/media/' })
+    return gulp.src(['**/*.{jpg,gif,png}'], { cwd: 'app/media/' })
         .pipe($.imagemin({
             verbose: true
         }, {
@@ -189,12 +186,14 @@ gulp.task('assets', function (cb) {
     runSequence('styles', 'scripts', cb); //, 'fonts'
 });
 
-gulp.task('clean', function(cb) {
+gulp.task('clean', function (cb) {
 	del([target() + '/*'], cb);
 });
 
 gulp.task('gh-pages', function () {
-    return gulp.src('dist/**/*')
+    return gulp.src(['dist/**/*'], {
+        dot: true
+    })
         .pipe($.ghPages({
             remoteUrl: 'https://github.com/gilbarbara/gilbarbara.github.io',
             branch: 'master',
