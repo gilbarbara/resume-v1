@@ -6,7 +6,7 @@ var React = require('react'),
 var Home = React.createClass({
     getInitialState () {
         return {
-            lang: location.pathname.indexOf('en') > -1 ? 'en' : 'pt',
+            lang: location.search.indexOf('en') > -1 ? 'en' : 'pt',
             texts: texts
         };
     },
@@ -14,7 +14,7 @@ var Home = React.createClass({
     _setLang (e) {
         var lang = e.currentTarget.checked ? 'en' : 'pt';
 
-        window.history.pushState('', '', (lang === 'pt' ? '/' : 'en'));
+        window.history.pushState('', '', (lang === 'pt' ? '/' : '?en'));
         this.setState({
             lang: lang
         });
