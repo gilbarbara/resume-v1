@@ -1,38 +1,34 @@
-var gulp        = require('gulp'),
-    $           = require('gulp-load-plugins')(),
-    browserify  = require('browserify'),
-    bowerFiles  = require('main-bower-files')(),
-    buffer      = require('vinyl-buffer'),
-    browserSync = require('browser-sync'),
-    del         = require('del'),
-    historyApiFallback    = require('connect-history-api-fallback'),
-    merge       = require('merge-stream'),
-    path        = require('path'),
-    runSequence = require('run-sequence'),
-    source      = require('vinyl-source-stream'),
-    watchify    = require('watchify');
+/*eslint-disable no-var, prefer-arrow-callback, object-shorthand */
+var gulp               = require('gulp'),
+    $                  = require('gulp-load-plugins')(),
+    browserify         = require('browserify'),
+    bowerFiles         = require('main-bower-files')(),
+    buffer             = require('vinyl-buffer'),
+    browserSync        = require('browser-sync'),
+    del                = require('del'),
+    historyApiFallback = require('connect-history-api-fallback'),
+    merge              = require('merge-stream'),
+    path               = require('path'),
+    runSequence        = require('run-sequence'),
+    source             = require('vinyl-source-stream'),
+    watchify           = require('watchify');
 
 var isProduction = function () {
         return process.env.NODE_ENV === 'production';
-    },
-    target       = function () {
-        return (isProduction() ? 'dist' : '.tmp');
     },
     middleware   = historyApiFallback({});
 
 function watchifyTask (options) {
     var bundler, rebundle, iteration = 0;
     bundler = browserify({
+        basedir: '.',
         entries: path.join(__dirname, '/app/scripts/main.js'),
-        insertGlobals: true,
+        insertGlobals: options.watch,
         cache: {},
-        //debug: options.watch,
+        debug: options.watch,
         packageCache: {},
-        fullPaths: options.watch, //options.watch
-        extensions: ['.jsx'],
-        transform: [
-            ['babelify', { ignore: /bower_components/ }]
-        ]
+        fullPaths: options.watch,
+        extensions: ['.jsx']
     });
 
     if (options.watch) {
@@ -49,10 +45,9 @@ function watchifyTask (options) {
         }
 
         stream
-            .pipe(source($.if(options.watch, 'main.js', 'main.min.js')))
+            .pipe(source('app.js'))
             .pipe(buffer())
-            .pipe($.if(!options.watch, $.uglify()))
-            .pipe(gulp.dest(target() + '/scripts'))
+            .pipe(gulp.dest('.tmp/scripts'))
             .pipe($.tap(function () {
                 if (iteration === 0 && options.cb) {
                     options.cb();
@@ -80,6 +75,7 @@ gulp.task('styles', function () {
             browsers: ['last 2 versions']
         }))
         .pipe(gulp.dest('.tmp/styles'))
+        .pipe(browserSync.stream())
         .pipe($.size({
             title: 'Styles'
         }));
@@ -105,8 +101,7 @@ gulp.task('lint', function () {
 gulp.task('media', function () {
     return gulp.src(['**/*.{jpg,gif,png}'], { cwd: 'app/media/' })
         .pipe($.imagemin({
-            verbose: true
-        }, {
+            verbose: true,
             progressive: true,
             interlaced: true
         }))
@@ -120,7 +115,7 @@ gulp.task('fonts', function () {
     return gulp.src(bowerFiles)
         .pipe($.filter('**/*.{eot,svg,ttf,woff,woff2}'))
         .pipe($.flatten())
-        .pipe(gulp.dest(target() + '/styles/fonts'))
+        .pipe(gulp.dest('dist/styles/fonts'))
         .pipe($.size({
             title: 'Fonts'
         }));
@@ -128,7 +123,6 @@ gulp.task('fonts', function () {
 
 gulp.task('bundle', function () {
     var html,
-        vendor,
         extras,
         svg,
         assets = $.useref.assets();
@@ -144,38 +138,30 @@ gulp.task('bundle', function () {
             title: 'HTML'
         }));
 
-    vendor = gulp.src('bower_components/modernizr/modernizr.js')
-        .pipe($.uglify())
-        .pipe($.rename('modernizr.min.js'))
-        .pipe(gulp.dest('dist/scripts'))
-        .pipe($.size({
-            title: 'Vendor'
-        }));
-
     extras = gulp.src([
-        'app/*.*',
-        '!app/*.html'
-    ], {
-        dot: true
-    })
+            'app/*.*',
+            '!app/*.html'
+        ], {
+            dot: true
+        })
         .pipe(gulp.dest('dist'))
         .pipe($.size({
             title: 'Extras'
         }));
 
     svg = gulp.src([
-        '**/*.svg'
-    ], { base: 'app/media/' })
+            '**/*.svg'
+        ], { base: 'app/media/' })
         .pipe(gulp.dest('dist/media'))
         .pipe($.size({
             title: 'SVG'
         }));
 
-    return merge(html, vendor, extras, svg);
+    return merge(html, extras, svg);
 });
 
 gulp.task('sizer', function () {
-    return gulp.src(target() + '/**/*')
+    return gulp.src('dist/**/*')
         .pipe($.size({
             title: 'Build',
             gzip: true
@@ -187,13 +173,18 @@ gulp.task('assets', function (cb) {
 });
 
 gulp.task('clean', function (cb) {
-	del([target() + '/*'], cb);
+    var target = ['.tmp/*'];
+    if (isProduction()) {
+        target.push('dist/*');
+    }
+
+    return del(target, cb);
 });
 
 gulp.task('gh-pages', function () {
     return gulp.src(['dist/**/*'], {
-        dot: true
-    })
+            dot: true
+        })
         .pipe($.ghPages({
             remoteUrl: 'https://github.com/gilbarbara/gilbarbara.github.io',
             branch: 'master',
@@ -202,12 +193,12 @@ gulp.task('gh-pages', function () {
 });
 
 gulp.task('serve', ['assets'], function () {
-    browserSync({
+    browserSync.init({
         notify: true,
         logPrefix: 'resume',
         files: ['app/*.html', '.tmp/styles/**/*.css', '.tmp/scripts/*.js', 'app/media/**/*'],
         server: {
-            baseDir: [target(), 'app'],
+            baseDir: ['app', '.tmp'],
             middleware: [middleware],
             routes: {
                 '/bower_components': './bower_components'
@@ -220,7 +211,9 @@ gulp.task('serve', ['assets'], function () {
             gulp.start('styles');
         }
     });
-    //gulp.watch('bower.json', ['bundle', browserSync.reload]);
+    gulp.watch(['app/*.html', '.tmp/assets/app.js', 'app/media/**/*', 'app/texts.json']).on('change', function () {
+        browserSync.reload();
+    });
 });
 
 gulp.task('build', ['clean'], function (cb) {

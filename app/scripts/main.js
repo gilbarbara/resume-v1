@@ -1,9 +1,10 @@
-var React = require('react'),
-    App  = require('./App');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 
-var drop = event => {
-    var el = event.target;
-    var style = window.getComputedStyle(event.target, null);
+let drop = event => {
+    let el = event.target,
+        style = window.getComputedStyle(event.target, null);
 
     if (style.left !== 'auto') {
         el.style.left = event.clientX + 'px';
@@ -17,8 +18,8 @@ var drop = event => {
     return false;
 };
 
-var scrolled = () => {
-    var logos = document.querySelector('.logos');
+let scrolled = () => {
+    let logos = document.querySelector('.logos');
 
     if (window.scrollY > 75 && !logos.classList.contains('logos--fade')) {
         logos.classList.add('logos--fade');
@@ -29,12 +30,14 @@ var scrolled = () => {
         logos.classList.remove('logos--fade');
     }
 };
+// Polyfills
+require('babel-polyfill');
 
-document.addEventListener('DOMContentLoaded', function () {
-    React.render(<App/>, document.getElementById('react'));
+document.addEventListener('DOMContentLoaded', () => {
+    ReactDOM.render(<App/>, document.getElementById('react'));
 
-    var imgs = document.querySelectorAll('.logos img');
-    for (var i = 0; i < imgs.length; ++i) {
+    let imgs = document.querySelectorAll('.logos img');
+    for (let i = 0; i < imgs.length; ++i) {
         imgs[i].addEventListener('dragend', drop, false);
     }
     scrolled();

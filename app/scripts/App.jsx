@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 var React = require('react'),
     Header = require('./components/Header'),
     Loader = require('./components/Loader'),
@@ -8,20 +9,34 @@ var Home = React.createClass({
         return {
             lang: location.search.indexOf('en') > -1 ? 'en' : 'pt',
             texts: texts
+=======
+import React from 'react';
+import Header from './components/Header';
+import Loader from './components/Loader';
+import texts from '../texts.json';
+
+class Home extends React.Component {
+    constructor (props) {
+        super(props);
+
+        this.state = {
+            lang: location.pathname.indexOf('en') > -1 ? 'en' : 'pt',
+            texts
+>>>>>>> Stashed changes
         };
-    },
+    }
 
     _setLang (e) {
-        var lang = e.currentTarget.checked ? 'en' : 'pt';
+        let lang = e.currentTarget.checked ? 'en' : 'pt';
 
         window.history.pushState('', '', (lang === 'pt' ? '/' : '?en'));
         this.setState({
-            lang: lang
+            lang
         });
-    },
+    }
 
     render () {
-        var state = this.state;
+        const state = this.state;
 
         return (
             <div className="app">
@@ -156,7 +171,6 @@ var Home = React.createClass({
             </div>
         );
     }
+}
 
-});
-
-module.exports = Home;
+export default Home;
