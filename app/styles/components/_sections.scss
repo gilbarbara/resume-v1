@@ -1,4 +1,3 @@
-
 .section {
   padding: 20px 0 $grid-gutter-width;
 
@@ -6,18 +5,22 @@
     padding-bottom: $grid-gutter-width * 1.5;
   }
 
-  @include lg {
+  @include md {
     padding-bottom: $grid-gutter-width * 2;
   }
 
+  @include lg {
+    padding-bottom: $grid-gutter-width * 3;
+  }
+
   &:nth-of-type(odd):not(:last-of-type) {
-    @include jagged($section-color-odd);
     background-color: $section-color-odd;
+    color: #000;
   }
 
   &:nth-of-type(even):not(:last-of-type) {
-    @include jagged($section-color-even);
     background-color: $section-color-even;
+    color: $section-color-odd;
   }
 
   &__title {
@@ -71,8 +74,8 @@
       }
 
       &:last-of-type {
-        margin-bottom: 0;
         flex-grow: 1;
+        margin-bottom: 0;
       }
 
       h4 {
@@ -89,23 +92,27 @@
     justify-content: space-between;
 
     > li {
-      display: inline-block;
-      margin-bottom: $grid-gutter-width / 2;
+      margin-bottom: $grid-gutter-width;
+      text-align: center;
       width: 100%;
+
+      @include xs {
+        width: percentage(1 / 2);
+      }
 
       @include md {
         text-align: center;
-        width: 50%;
+        width: percentage(1 / 3);
       }
 
       @include lg {
-        width: 20%;
+        width: percentage(1 / 3);
       }
 
       .project {
         display: block;
-        font-size: 1.6rem;
-        text-align: left;
+        font-size: 1.8rem;
+        text-align: center;
         text-decoration: none;
 
         @include md {
@@ -114,12 +121,12 @@
         }
 
         &__image {
-          display: inline-block;
+          display: block;
           height: 0;
-          margin-right: 5px;
-          padding-bottom: 30%;
+          margin: 0 auto 5px;
+          padding-bottom: 60%;
           vertical-align: middle;
-          width: 30%;
+          width: 60%;
 
           @include md {
             display: block;
@@ -134,8 +141,9 @@
         }
 
         &__name {
-          display: inline-block;
+          display: block;
           font-size: 2rem;
+          text-align: center;
         }
       }
     }
@@ -157,19 +165,19 @@
       }
 
       .timeframe {
-        color: #666;
+        color: #aaa;
         display: block;
         margin-top: 3rem;
 
         &:before {
-          content: '—';
           color: #666;
+          content: '—';
           padding-right: 5px;
         }
       }
 
       em {
-        color: #555;
+        color: #aaa;
         display: block;
         margin-top: 10px;
       }

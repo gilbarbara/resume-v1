@@ -20,7 +20,7 @@ body {
   }
 
   @include md {
-    margin: 0 ($grid-gutter-width * 3);
+    margin: 0 ($grid-gutter-width * 2);
   }
 
   @include lg {
