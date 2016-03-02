@@ -131,15 +131,12 @@ gulp.task('media', function() {
 gulp.task('bundle', function() {
     var html,
         extras,
-        svg,
-        assets = $.useref.assets();
+        svg;
 
     html = gulp.src('app/*.html')
-        .pipe(assets)
+        .pipe($.useref())
         .pipe($.if('*.js', $.uglify()))
         .pipe($.if('*.css', $.cssmin()))
-        .pipe(assets.restore())
-        .pipe($.useref())
         .pipe(gulp.dest('dist'))
         .pipe($.size({
             title: 'HTML'
