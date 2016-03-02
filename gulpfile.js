@@ -1,33 +1,50 @@
-/*eslint-disable no-var, prefer-arrow-callback, object-shorthand */
-var gulp               = require('gulp'),
-    $                  = require('gulp-load-plugins')(),
-    browserify         = require('browserify'),
-    bowerFiles         = require('main-bower-files')(),
-    buffer             = require('vinyl-buffer'),
-    browserSync        = require('browser-sync'),
-    del                = require('del'),
-    historyApiFallback = require('connect-history-api-fallback'),
-    merge              = require('merge-stream'),
-    path               = require('path'),
-    runSequence        = require('run-sequence'),
-    source             = require('vinyl-source-stream'),
-    watchify           = require('watchify');
+/*eslint-disable no-var, one-var, func-names, indent, prefer-arrow-callback, object-shorthand, no-console, newline-per-chained-call, one-var-declaration-per-line, vars-on-top  */
+var gulp        = require('gulp'),
+    $           = require('gulp-load-plugins')(),
+    browserify  = require('browserify'),
+    buffer      = require('vinyl-buffer'),
+    browserSync = require('browser-sync'),
+    del         = require('del'),
+    lrload      = require('livereactload'),
+    merge       = require('merge-stream'),
+    path        = require('path'),
+    runSequence = require('run-sequence'),
+    source      = require('vinyl-source-stream'),
+    watchify    = require('watchify');
 
-var isProduction = function () {
-        return process.env.NODE_ENV === 'production';
-    },
-    middleware   = historyApiFallback({});
+function isProduction() {
+    return process.env.NODE_ENV === 'production';
+}
 
-function watchifyTask (options) {
+function getIPAddress() {
+    var interfaces = require('os').networkInterfaces();
+    for (var devName in interfaces) {
+        if (interfaces.hasOwnProperty(devName)) {
+            var iface = interfaces[devName];
+
+            for (var i = 0; i < iface.length; i++) {
+                var alias = iface[i];
+                if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal) {
+                    return alias.address;
+                }
+            }
+        }
+    }
+
+    return '0.0.0.0';
+}
+
+function watchifyTask(options) {
     var bundler, rebundle, iteration = 0;
     bundler = browserify({
         basedir: '.',
         entries: path.join(__dirname, '/app/scripts/main.js'),
-        insertGlobals: options.watch,
+        insertGlobals: false, // options.watch,
         cache: {},
-        debug: options.watch,
+        debug: false, // options.watch,
         packageCache: {},
-        fullPaths: options.watch,
+        fullPaths: false, // options.watch,
+        plugin: options.watch ? [[lrload, { host: getIPAddress() }]] : [],
         extensions: ['.jsx']
     });
 
@@ -35,11 +52,11 @@ function watchifyTask (options) {
         bundler = watchify(bundler);
     }
 
-    rebundle = function () {
+    rebundle = function() {
         var stream = bundler.bundle();
 
         if (options.watch) {
-            stream.on('error', function (err) {
+            stream.on('error', function(err) {
                 console.log(err);
             });
         }
@@ -48,7 +65,7 @@ function watchifyTask (options) {
             .pipe(source('app.js'))
             .pipe(buffer())
             .pipe(gulp.dest('.tmp/scripts'))
-            .pipe($.tap(function () {
+            .pipe($.tap(function() {
                 if (iteration === 0 && options.cb) {
                     options.cb();
                 }
@@ -60,7 +77,7 @@ function watchifyTask (options) {
     return rebundle();
 }
 
-gulp.task('styles', function () {
+gulp.task('styles', function() {
     return gulp.src('app/styles/main.scss')
         .pipe($.changed('styles', {
             extension: '.scss'
@@ -82,14 +99,14 @@ gulp.task('styles', function () {
 });
 
 // Scripts
-gulp.task('scripts', function (cb) {
+gulp.task('scripts', function(cb) {
     return watchifyTask({
         watch: !isProduction(),
         cb: cb
     });
 });
 
-gulp.task('lint', function () {
+gulp.task('lint', function() {
     return gulp.src('app/scripts/**/*')
         .pipe($.eslint({
             useEslintrc: true
@@ -98,7 +115,7 @@ gulp.task('lint', function () {
         .pipe($.eslint.failOnError());
 });
 
-gulp.task('media', function () {
+gulp.task('media', function() {
     return gulp.src(['**/*.{jpg,gif,png}'], { cwd: 'app/media/' })
         .pipe($.imagemin({
             verbose: true,
@@ -111,17 +128,7 @@ gulp.task('media', function () {
         }));
 });
 
-gulp.task('fonts', function () {
-    return gulp.src(bowerFiles)
-        .pipe($.filter('**/*.{eot,svg,ttf,woff,woff2}'))
-        .pipe($.flatten())
-        .pipe(gulp.dest('dist/styles/fonts'))
-        .pipe($.size({
-            title: 'Fonts'
-        }));
-});
-
-gulp.task('bundle', function () {
+gulp.task('bundle', function() {
     var html,
         extras,
         svg,
@@ -160,7 +167,7 @@ gulp.task('bundle', function () {
     return merge(html, extras, svg);
 });
 
-gulp.task('sizer', function () {
+gulp.task('sizer', function() {
     return gulp.src('dist/**/*')
         .pipe($.size({
             title: 'Build',
@@ -168,11 +175,11 @@ gulp.task('sizer', function () {
         }));
 });
 
-gulp.task('assets', function (cb) {
-    runSequence('styles', 'scripts', cb); //, 'fonts'
+gulp.task('assets', function(cb) {
+    runSequence('styles', 'scripts', cb);
 });
 
-gulp.task('clean', function (cb) {
+gulp.task('clean', function(cb) {
     var target = ['.tmp/*'];
     if (isProduction()) {
         target.push('dist/*');
@@ -181,7 +188,7 @@ gulp.task('clean', function (cb) {
     return del(target, cb);
 });
 
-gulp.task('gh-pages', function () {
+gulp.task('gh-pages', function() {
     return gulp.src(['dist/**/*'], {
             dot: true
         })
@@ -192,36 +199,32 @@ gulp.task('gh-pages', function () {
         }));
 });
 
-gulp.task('serve', ['assets'], function () {
+gulp.task('serve', ['assets'], function() {
     browserSync.init({
         notify: true,
         logPrefix: 'resume',
-        files: ['app/*.html', '.tmp/styles/**/*.css', '.tmp/scripts/*.js', 'app/media/**/*'],
         server: {
             baseDir: ['app', '.tmp'],
-            middleware: [middleware],
             routes: {
                 '/bower_components': './bower_components'
             }
         }
     });
 
-    gulp.watch('app/styles/**/*.scss', function (e) {
+    gulp.watch('app/styles/**/*.scss', function(e) {
         if (e.type === 'changed') {
             gulp.start('styles');
         }
     });
-    gulp.watch(['app/*.html', '.tmp/assets/app.js', 'app/media/**/*', 'app/texts.json']).on('change', function () {
-        browserSync.reload();
-    });
+    gulp.watch(['app/*.html', 'app/media/**/*', 'app/texts.json']).on('change', browserSync.reload);
 });
 
-gulp.task('build', ['clean'], function (cb) {
+gulp.task('build', ['clean'], function(cb) {
     process.env.NODE_ENV = 'production';
     runSequence('lint', 'assets', ['media', 'bundle'], 'sizer', cb);
 });
 
-gulp.task('deploy', function (cb) {
+gulp.task('deploy', function(cb) {
     runSequence('build', ['gh-pages'], cb);
 });
 
