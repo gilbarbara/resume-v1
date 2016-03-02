@@ -84,6 +84,16 @@ class Home extends React.Component {
             <div className="container">
               <h3 className="section__title">{strings.projects.title[state.lang]}</h3>
               <ul className="section__list">
+                <li><a href="http://svgporn.com/" className="project" target="_blank">
+                  <div className="project__image">
+                    <img
+                      src="media/projects/svgporn.svg"
+                      className="project"
+                      title="SVG Porn" />
+                  </div>
+                  <div className="project__name">SVG Porn</div>
+                </a>
+                </li>
                 <li><a href="http://favstagram.me/" className="project" target="_blank">
                   <div className="project__image">
                     <img
